@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Welcome to the SAMSL Manager Website
+          Welcome to the SAMSL Manager Website.
         </p>
         <LoginButton></LoginButton><br/>
         <LogoutButton></LogoutButton>
