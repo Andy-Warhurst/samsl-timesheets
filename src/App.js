@@ -11,7 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <LoginButton></LoginButton>
+        <LoginButton></LoginButton><br/>
         <LogoutButton></LogoutButton>
         <a
           className="App-link"
