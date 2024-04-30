@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './SAMSL_Official_Logo.svg';
 import './App.css';
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
@@ -10,6 +10,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Welcome to the SAMSL Manager Website
+        </p>
+        <p>
           Version 0.1
         </p>
         <LoginButton></LoginButton><br/>
