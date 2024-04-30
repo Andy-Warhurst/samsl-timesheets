@@ -33,7 +33,7 @@ jobs:
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
-          REACT_APP_CLIENTL: ${{ secrets.REACT_APP_CLIENT}}
+          REACT_APP_CLIENT: ${{ secrets.REACT_APP_CLIENT}}
           REACT_APP_DOMAIN: ${{ secrets.REACT_APP_DOMAIN}}
 
   close_pull_request_job:
