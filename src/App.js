@@ -10,6 +10,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Welcome to the SAMSL Manager Website
+          Version 0.1
         </p>
         <LoginButton></LoginButton><br/>
         <LogoutButton></LogoutButton>
