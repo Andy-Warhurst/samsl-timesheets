@@ -5,6 +5,7 @@ import Services from './Services'
 import Header from './Header';
 import NavBar from './NavBar';
 import ErrorPage from './ErrorPage';
+import Guests from "./Guests";
 import AuthenticationGuard from './authentication-guard';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                         <Routes>
                             <Route path="/home" element={<Home />} />
                             <Route path="/about" element={<About />} />
+                            <Route path="/guests" element={<Guests />} />
                             <Route
                                 path="/services"
                                 element={<AuthenticationGuard component={Services} />}
