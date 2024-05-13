@@ -8,6 +8,8 @@ function Home() {
     return (
         <div>
 
+            <header></header>
+
                 {!isAuthenticated && (
                     <>
                         <p>Please Login to use this App.</p>

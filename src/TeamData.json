@@ -1,0 +1,99 @@
+[
+{
+    "id": 1,
+    "name": "Adelaide Spurs",
+    "division": 2,
+    "delegate": "Gary Pike"
+},{
+    "id": 2,
+    "name": "Austria",
+    "division": 2,
+    "delegate": "Gordon Hazard"
+},{
+    "id": 3,
+    "name": "Cove Masters",
+    "division": 1,
+    "delegate": "Phil"
+},{
+    "id": 4,
+    "name": "Croatia",
+    "division": 1,
+    "delegate": "Drago"
+},{
+    "id": 5,
+    "name": "Mercedes",
+    "division": 2,
+    "delegate": "Jon Parkin"
+},{
+    "id": 6,
+    "name": "Plympton FC",
+    "division": 1,
+    "delegate": "Steve Hammond"
+},{
+    "id": 7,
+    "name": "Pulteney",
+    "division": 1,
+    "delegate": "Frank"
+},{
+    "id": 8,
+    "name": "Royal Ajvar",
+    "division": 1,
+    "delegate": "Branko Rippa"
+},{
+    "id": 9,
+    "name": "St Peters",
+    "division": 1,
+    "delegate": "Jonnathan Betts"
+},{
+    "id": 10,
+    "name": "Pulteney Crabs",
+    "division": 2,
+    "delegate": "Frank"
+},{
+    "id": 11,
+    "name": "Sporting",
+    "division": 1,
+    "delegate": "Andy Whitfield"
+},{
+    "id": 12,
+    "name": "Southern Cross",
+    "division": 2,
+    "delegate": "Chris"
+},{
+    "id": 13,
+    "name": "Southern Sharks",
+    "division": 2,
+    "delegate": "Ray Hayes"
+},{
+    "id": 14,
+    "name": "Sturt Fusion",
+    "division": 1,
+    "delegate": "Ciaran Cullen"
+},{
+    "id": 15,
+    "name": "Sturt Marion OB",
+    "division": 2,
+    "delegate": "Chris Nugent"
+},{
+    "id": 16,
+    "name": "University Old Boys",
+    "division": 1,
+    "delegate": "Luke Gardner"
+},{
+    "id": 17,
+    "name": "University Orange",
+    "division": 2,
+    "delegate": "Jacques Metzer"
+},{
+    "id": 18,
+    "name": "West Beach",
+    "division": 2,
+    "delegate": "Bill Houston"
+},{
+    "id": 19,
+    "name": "Old Plymptonians",
+    "division": 2,
+    "delegate": "Steve Hammond"
+}
+]
+
