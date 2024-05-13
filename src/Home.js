@@ -12,7 +12,7 @@ function Home() {
 
                 {!isAuthenticated && (
                     <>
-                        <p>Please Login to use this App.</p>
+                        <p>Please Login to use this App. </p>
 
                     </>
                 )}

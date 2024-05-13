@@ -1,6 +1,6 @@
 import React from "react";
 //import FIXTURES from "./fixtures24.json";
-import Teams from "./TeamData.json";
+//import Teams from "./TeamData.json";
 import getNextFixture from "./NextFixture";
 
 const FixtureDetails = (props) => {
