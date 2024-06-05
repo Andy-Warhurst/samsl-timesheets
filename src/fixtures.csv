@@ -1,0 +1,181 @@
+id,round,date,time,venue,division,hometeam,homescore,awayscore,awayteam
+1,1,7/4/2024,9.3,Barratt Reserve 1,1,Plympton FC,1,2,Croatia
+2,1,7/4/2024,11.15,Barratt Reserve 1,2,Old Plymptonians,4,1,Austria
+3,1,7/4/2024,9.3,Barratt Reserve 2,1,Pulteney,9,1,University Old Boys
+4,1,7/4/2024,11.15,Barratt Reserve 2,2,Pulteney Crabs,0,8,West Beach
+5,1,7/4/2024,9.3,Barratt Reserve 3,1,Royal Ajvar,2,1,Cove Masters
+6,1,7/4/2024,11.15,Barratt Reserve 3,2,Mercedes,9,2,Adelaide Spurs
+7,1,7/4/2024,9.3,Barratt Reserve 4,1,Sporting,3,1,St Peters
+8,1,7/4/2024,11.15,Barratt Reserve 4,2,Southern Sharks,1,7,University Orange
+9,1,7/4/2024,9.3,Barratt Reserve 5,1,BYE,,,Sturt Fusion
+10,1,7/4/2024,11.15,Barratt Reserve 5,2,Southern Cross,3,2,Sturt Marion OB
+11,2,14/4/2024,9.3,Barratt Reserve 1,2,Pulteney Crabs,0,10,Sturt Marion OB
+12,2,14/4/2024,11.15,Barratt Reserve 1,1,Pulteney,4,2,Sturt Fusion
+13,2,14/4/2024,9.3,Barratt Reserve 2,2,Austria,1,2,Mercedes
+14,2,14/4/2024,11.15,Barratt Reserve 2,1,Royal Ajvar,1,5,Croatia
+15,2,14/4/2024,9.3,Barratt Reserve 3,2,University Orange,2,0,Southern Cross
+16,2,14/4/2024,11.15,Barratt Reserve 3,1,St Peters,0,2,Cove Masters
+17,2,14/4/2024,9.3,Barratt Reserve 4,2,Adelaide Spurs,0,3,Southern Sharks
+18,2,14/4/2024,11.15,Barratt Reserve 4,1,Sporting,4,0,University Old Boys
+19,2,14/4/2024,9.3,Barratt Reserve 5,2,Old Plymptonians,1,5,West Beach
+20,2,14/4/2024,11.15,Barratt Reserve 5,1,BYE,,,Plympton FC
+21,3,21/4/2024,9.3,Barratt Reserve 1,1,St Peters,0,4,Plympton FC
+22,3,21/4/2024,11.15,Barratt Reserve 1,2,University Orange,0,1,Old Plymptonians
+23,3,21/4/2024,9.3,Barratt Reserve 2,1,Cove Masters,2,3,Sturt Fusion
+24,3,21/4/2024,11.15,Barratt Reserve 2,2,Sturt Marion OB,3,1,Mercedes
+25,3,21/4/2024,9.3,Barratt Reserve 3,1,University Old Boys,0,7,Croatia
+26,3,21/4/2024,11.15,Barratt Reserve 3,2,Southern Cross,9,0,Adelaide Spurs
+27,3,21/4/2024,9.3,Barratt Reserve 4,1,Sporting,3,1,Pulteney
+28,3,21/4/2024,11.15,Barratt Reserve 4,2,Southern Sharks,6,0,Pulteney Crabs
+29,3,21/4/2024,9.3,Barratt Reserve 5,1,BYE,,,Royal Ajvar
+30,3,21/4/2024,11.15,Barratt Reserve 5,2,West Beach,2,1,Austria
+31,4,28/4/2024,9.3,Barratt Reserve 1,2,West Beach,6,2,Southern Cross
+32,4,28/4/2024,11.15,Barratt Reserve 1,1,University Old Boys,1,4,St Peters
+33,4,28/4/2024,9.3,Barratt Reserve 2,2,Mercedes,6,1,Old Plymptonians
+34,4,28/4/2024,11.15,Barratt Reserve 2,1,Plympton FC,5,1,Pulteney
+35,4,28/4/2024,9.3,Barratt Reserve 3,2,Austria,1,2,Pulteney Crabs
+36,4,28/4/2024,11.15,Barratt Reserve 3,1,Sturt Fusion,2,3,Royal Ajvar
+37,4,28/4/2024,9.3,Barratt Reserve 4,2,Sturt Marion OB,3,3,Southern Sharks
+38,4,28/4/2024,11.15,Barratt Reserve 4,1,Croatia,7,3,Sporting
+39,4,28/4/2024,9.3,Barratt Reserve 5,2,Adelaide Spurs,0,5,University Orange
+40,4,28/4/2024,11.15,Barratt Reserve 5,1,BYE,,,Cove Masters
+41,6,19/5/2024,9.3,Barratt Reserve 1,2,Old Plymptonians,,,Pulteney Crabs
+42,6,19/5/2024,11.15,Barratt Reserve 1,1,Royal Ajvar,,,Plympton FC
+43,6,19/5/2024,9.3,Barratt Reserve 2,2,West Beach,,,University Orange
+44,6,19/5/2024,11.15,Barratt Reserve 2,1,St Peters,,,Croatia
+45,6,19/5/2024,9.3,Barratt Reserve 3,2,Adelaide Spurs,,,Sturt Marion OB
+46,6,19/5/2024,11.15,Barratt Reserve 3,1,Cove Masters,,,University Old Boys
+47,6,19/5/2024,9.3,Barratt Reserve 4,2,Austria,,,Southern Sharks
+48,6,19/5/2024,11.15,Barratt Reserve 4,1,Sporting,,,Sturt Fusion
+49,6,19/5/2024,9.3,Barratt Reserve 5,2,Mercedes,,,Southern Cross
+50,6,19/5/2024,11.15,Barratt Reserve 5,1,BYE,,,Pulteney
+51,5,26/5/2024,9.3,Barratt Reserve 1,1,Croatia,,,Cove Masters
+52,5,26/5/2024,11.15,Barratt Reserve 1,2,University Orange,,,Sturt Marion OB
+53,5,26/5/2024,9.3,Barratt Reserve 2,1,Sturt Fusion,,,St Peters
+54,5,26/5/2024,11.15,Barratt Reserve 2,2,Pulteney Crabs,,,Mercedes
+55,5,26/5/2024,9.3,Barratt Reserve 3,1,Pulteney,,,Royal Ajvar
+56,5,26/5/2024,11.15,Barratt Reserve 3,2,Old Plymptonians,,,Adelaide Spurs
+57,5,26/5/2024,9.3,Barratt Reserve 4,1,Plympton FC,,,Sporting
+58,5,26/5/2024,11.15,Barratt Reserve 4,2,Southern Sharks,,,West Beach
+59,5,26/5/2024,9.3,Barratt Reserve 5,2,Southern Cross,,,Austria
+60,5,26/5/2024,11.15,Barratt Reserve 5,1,BYE,,,University Old Boys
+61,7,2/6/2024,9.3,Barratt Reserve 1,1,Sturt Fusion,,,University Old Boys
+62,7,2/6/2024,11.15,Barratt Reserve 1,2,Sturt Marion OB,,,West Beach
+63,7,2/6/2024,9.3,Barratt Reserve 2,1,Plympton FC,,,Cove Masters
+64,7,2/6/2024,11.15,Barratt Reserve 2,2,Southern Cross,,,Old Plymptonians
+65,7,2/6/2024,9.3,Barratt Reserve 3,1,Pulteney,,,St Peters
+66,7,2/6/2024,11.15,Barratt Reserve 3,2,Pulteney Crabs,,,Adelaide Spurs
+67,7,2/6/2024,9.3,Barratt Reserve 4,1,Royal Ajvar,,,Sporting
+68,7,2/6/2024,11.15,Barratt Reserve 4,2,Southern Sharks,,,Mercedes
+69,7,2/6/2024,9.3,Barratt Reserve 5,2,University Orange,,,Austria
+70,7,2/6/2024,11.15,Barratt Reserve 5,1,BYE,,,Croatia
+71,8,16/6/2024,9.3,Barratt Reserve 1,2,Mercedes,,,University Orange
+72,8,16/6/2024,11.15,Barratt Reserve 1,1,St Peters,,,Royal Ajvar
+73,8,16/6/2024,9.3,Barratt Reserve 2,2,Pulteney Crabs,,,Southern Cross
+74,8,16/6/2024,11.15,Barratt Reserve 2,1,Cove Masters,,,Pulteney
+75,8,16/6/2024,9.3,Barratt Reserve 3,2,Austria,,,Sturt Marion OB
+76,8,16/6/2024,11.15,Barratt Reserve 3,1,Croatia,,,Sturt Fusion
+77,8,16/6/2024,9.3,Barratt Reserve 4,2,Old Plymptonians,,,Southern Sharks
+78,8,16/6/2024,11.15,Barratt Reserve 4,1,University Old Boys,,,Plympton FC
+79,8,16/6/2024,9.3,Barratt Reserve 5,2,Adelaide Spurs,,,West Beach
+80,8,16/6/2024,11.15,Barratt Reserve 5,1,BYE,,,Sporting
+81,9,23/6/2024,9.3,Barratt Reserve 1,1,University Old Boys,,,Royal Ajvar
+82,9,23/6/2024,11.15,Barratt Reserve 1,2,Austria,,,Adelaide Spurs
+83,9,23/6/2024,9.3,Barratt Reserve 2,1,Croatia,,,Pulteney
+84,9,23/6/2024,11.15,Barratt Reserve 2,2,Pulteney Crabs,,,University Orange
+85,9,23/6/2024,9.3,Barratt Reserve 3,1,Sturt Fusion,,,Plympton FC
+86,9,23/6/2024,11.15,Barratt Reserve 3,2,Sturt Marion OB,,,Old Plymptonians
+87,9,23/6/2024,9.3,Barratt Reserve 4,1,Cove Masters,,,Sporting
+88,9,23/6/2024,11.15,Barratt Reserve 4,2,Southern Cross,,,Southern Sharks
+89,9,23/6/2024,9.3,Barratt Reserve 5,2,Mercedes,,,West Beach
+90,9,23/6/2024,11.15,Barratt Reserve 5,1,BYE,,,St Peters
+91,10,30/6/2024,9.3,Barratt Reserve 1,2,Austria,,,Old Plymptonians
+92,10,30/6/2024,11.15,Barratt Reserve 1,1,Croatia,,,Plympton FC
+93,10,30/6/2024,9.3,Barratt Reserve 2,2,West Beach,,,Pulteney Crabs
+94,10,30/6/2024,11.15,Barratt Reserve 2,1,University Old Boys,,,Pulteney
+95,10,30/6/2024,9.3,Barratt Reserve 3,2,Adelaide Spurs,,,Mercedes
+96,10,30/6/2024,11.15,Barratt Reserve 3,1,Cove Masters,,,Royal Ajvar
+97,10,30/6/2024,9.3,Barratt Reserve 4,2,University Orange,,,Southern Sharks
+98,10,30/6/2024,11.15,Barratt Reserve 4,1,St Peters,,,Sporting
+99,10,30/6/2024,9.3,Barratt Reserve 5,2,Sturt Marion OB,,,Southern Cross
+100,10,30/6/2024,11.15,Barratt Reserve 5,1,Sturt Fusion,,,BYE
+101,11,14/7/2024,9.3,Barratt Reserve 1,1,Sturt Fusion,,,Pulteney
+102,11,14/7/2024,11.15,Barratt Reserve 1,2,Sturt Marion OB,,,Pulteney Crabs
+103,11,14/7/2024,9.3,Barratt Reserve 2,1,Croatia,,,Royal Ajvar
+104,11,14/7/2024,11.15,Barratt Reserve 2,2,Mercedes,,,Austria
+105,11,14/7/2024,9.3,Barratt Reserve 3,1,Cove Masters,,,St Peters
+106,11,14/7/2024,11.15,Barratt Reserve 3,2,Southern Cross,,,University Orange
+107,11,14/7/2024,9.3,Barratt Reserve 4,1,University Old Boys,,,Sporting
+108,11,14/7/2024,11.15,Barratt Reserve 4,2,Southern Sharks,,,Adelaide Spurs
+109,11,14/7/2024,9.3,Barratt Reserve 5,2,West Beach,,,Old Plymptonians
+110,11,14/7/2024,11.15,Barratt Reserve 5,1,Plympton FC,,,BYE
+111,12,21/7/2024,9.3,Barratt Reserve 1,2,Old Plymptonians,,,University Orange
+112,12,21/7/2024,11.15,Barratt Reserve 1,1,Plympton FC,,,St Peters
+113,12,21/7/2024,9.3,Barratt Reserve 2,2,Mercedes,,,Sturt Marion OB
+114,12,21/7/2024,11.15,Barratt Reserve 2,1,Sturt Fusion,,,Cove Masters
+115,12,21/7/2024,9.3,Barratt Reserve 3,2,Adelaide Spurs,,,Southern Cross
+116,12,21/7/2024,11.15,Barratt Reserve 3,1,Croatia,,,University Old Boys
+117,12,21/7/2024,9.3,Barratt Reserve 4,2,Pulteney Crabs,,,Southern Sharks
+118,12,21/7/2024,11.15,Barratt Reserve 4,1,Pulteney,,,Sporting
+119,12,21/7/2024,9.3,Barratt Reserve 5,2,Austria,,,West Beach
+120,12,21/7/2024,11.15,Barratt Reserve 5,1,Royal Ajvar,,,BYE
+121,13,28/7/2024,9.3,Barratt Reserve 1,1,St Peters,,,University Old Boys
+122,13,28/7/2024,11.15,Barratt Reserve 1,2,Southern Cross,,,West Beach
+123,13,28/7/2024,9.3,Barratt Reserve 2,1,Pulteney,,,Plympton FC
+124,13,28/7/2024,11.15,Barratt Reserve 2,2,Old Plymptonians,,,Mercedes
+125,13,28/7/2024,9.3,Barratt Reserve 3,1,Royal Ajvar,,,Sturt Fusion
+126,13,28/7/2024,11.15,Barratt Reserve 3,2,Pulteney Crabs,,,Austria
+127,13,28/7/2024,9.3,Barratt Reserve 4,1,Sporting,,,Croatia
+128,13,28/7/2024,11.15,Barratt Reserve 4,2,Southern Sharks,,,Sturt Marion OB
+129,13,28/7/2024,9.3,Barratt Reserve 5,2,University Orange,,,Adelaide Spurs
+130,13,28/7/2024,11.15,Barratt Reserve 5,1,Cove Masters,,,BYE
+131,14,4/8/2024,9.3,Barratt Reserve 1,2,Sturt Marion OB,,,University Orange
+132,14,4/8/2024,11.15,Barratt Reserve 1,1,Cove Masters,,,Croatia
+133,14,4/8/2024,9.3,Barratt Reserve 2,2,Mercedes,,,Pulteney Crabs
+134,14,4/8/2024,11.15,Barratt Reserve 2,1,St Peters,,,Sturt Fusion
+135,14,4/8/2024,9.3,Barratt Reserve 3,2,Adelaide Spurs,,,Old Plymptonians
+136,14,4/8/2024,11.15,Barratt Reserve 3,1,Royal Ajvar,,,Pulteney
+137,14,4/8/2024,9.3,Barratt Reserve 4,2,West Beach,,,Southern Sharks
+138,14,4/8/2024,11.15,Barratt Reserve 4,1,Sporting,,,Plympton FC
+139,14,4/8/2024,9.3,Barratt Reserve 5,2,Austria,,,Southern Cross
+140,14,4/8/2024,11.15,Barratt Reserve 5,1,University Old Boys,,,BYE
+141,15,18/8/2024,9.3,Barratt Reserve 1,1,University Old Boys,,,Sturt Fusion
+142,15,18/8/2024,11.15,Barratt Reserve 1,2,West Beach,,,Sturt Marion OB
+143,15,18/8/2024,9.3,Barratt Reserve 2,1,Cove Masters,,,Plympton FC
+144,15,18/8/2024,11.15,Barratt Reserve 2,2,Old Plymptonians,,,Southern Cross
+145,15,18/8/2024,9.3,Barratt Reserve 3,1,St Peters,,,Pulteney
+146,15,18/8/2024,11.15,Barratt Reserve 3,2,Adelaide Spurs,,,Pulteney Crabs
+147,15,18/8/2024,9.3,Barratt Reserve 4,1,Sporting,,,Royal Ajvar
+148,15,18/8/2024,11.15,Barratt Reserve 4,2,Mercedes,,,Southern Sharks
+149,15,18/8/2024,9.3,Barratt Reserve 5,2,Austria,,,University Orange
+150,15,18/8/2024,11.15,Barratt Reserve 5,1,Croatia,,,BYE
+151,16,25/8/2024,9.3,Barratt Reserve 1,2,Pulteney Crabs,,,Old Plymptonians
+152,16,25/8/2024,11.15,Barratt Reserve 1,1,Plympton FC,,,Royal Ajvar
+153,16,25/8/2024,9.3,Barratt Reserve 2,2,University Orange,,,West Beach
+154,16,25/8/2024,11.15,Barratt Reserve 2,1,Croatia,,,St Peters
+155,16,25/8/2024,9.3,Barratt Reserve 3,2,Sturt Marion OB,,,Adelaide Spurs
+156,16,25/8/2024,11.15,Barratt Reserve 3,1,University Old Boys,,,Cove Masters
+157,16,25/8/2024,9.3,Barratt Reserve 4,2,Southern Sharks,,,Austria
+158,16,25/8/2024,11.15,Barratt Reserve 4,1,Sturt Fusion,,,Sporting
+159,16,25/8/2024,9.3,Barratt Reserve 5,2,Southern Cross,,,Mercedes
+160,16,25/8/2024,11.15,Barratt Reserve 5,1,Pulteney,,,BYE
+161,17,8/9/2024,9.3,Barratt Reserve 1,1,Royal Ajvar,,,St Peters
+162,17,8/9/2024,11.15,Barratt Reserve 1,2,University Orange,,,Mercedes
+163,17,8/9/2024,9.3,Barratt Reserve 2,1,Pulteney,,,Cove Masters
+164,17,8/9/2024,11.15,Barratt Reserve 2,2,Southern Cross,,,Pulteney Crabs
+165,17,8/9/2024,9.3,Barratt Reserve 3,1,Sturt Fusion,,,Croatia
+166,17,8/9/2024,11.15,Barratt Reserve 3,2,Sturt Marion OB,,,Austria
+167,17,8/9/2024,9.3,Barratt Reserve 4,1,Plympton FC,,,University Old Boys
+168,17,8/9/2024,11.15,Barratt Reserve 4,2,Southern Sharks,,,Old Plymptonians
+169,17,8/9/2024,9.3,Barratt Reserve 5,2,West Beach,,,Adelaide Spurs
+170,17,8/9/2024,11.15,Barratt Reserve 5,1,Sporting,,,BYE
+171,18,22/9/2024,9.3,Barratt Reserve 1,2,Adelaide Spurs,,,Austria
+172,18,22/9/2024,11.15,Barratt Reserve 1,1,Royal Ajvar,,,University Old Boys
+173,18,22/9/2024,9.3,Barratt Reserve 2,2,University Orange,,,Pulteney Crabs
+174,18,22/9/2024,11.15,Barratt Reserve 2,1,Pulteney,,,Croatia
+175,18,22/9/2024,9.3,Barratt Reserve 3,2,Old Plymptonians,,,Sturt Marion OB
+176,18,22/9/2024,11.15,Barratt Reserve 3,1,Plympton FC,,,Sturt Fusion
+177,18,22/9/2024,9.3,Barratt Reserve 4,2,Southern Sharks,,,Southern Cross
+178,18,22/9/2024,11.15,Barratt Reserve 4,1,Sporting,,,Cove Masters
+179,18,22/9/2024,9.3,Barratt Reserve 5,2,West Beach,,,Mercedes
+180,18,22/9/2024,11.15,Barratt Reserve 5,1,St Peters,,,BYE

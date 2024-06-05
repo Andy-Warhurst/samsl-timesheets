@@ -1,7 +1,19 @@
-//import Teams from "./TeamData.json";
 import FIXTURES from "./fixtures24.json";
 
-export default function getNextFixture(teamName) {
+export function getFixtures() {
+    return FIXTURES.filter(extractFixturesByTeam);
+}
+
+export function extractFixturesByTeam(teamName) {
+    return function(x) {
+        const isHome = (x.hometeam === teamName);
+        const isAway = (x.awayteam === teamName);
+        const keepIt = isHome || isAway;
+        return (keepIt);
+    };
+}
+
+export function getNextFixture(teamName) {
 
     const matchingFixtures = FIXTURES.filter(selectFixture);
     const theFixture = matchingFixtures[0];
@@ -28,6 +40,7 @@ export default function getNextFixture(teamName) {
             (((fixDate - nextSunday) === 0 && x.hometeam === teamName) ||
                 ((fixDate - nextSunday) === 0 && x.awayteam === teamName))
         );
-    };
-    return theFixture;
+    }
+
+    return (theFixture);
 }

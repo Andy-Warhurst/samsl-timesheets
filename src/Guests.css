@@ -1,0 +1,29 @@
+
+.guest-container {
+    background-color: darkgray;
+    border-radius: 5px;
+    horiz-align: left;
+    width: 360px;
+    flex-wrap: nowrap;
+}
+.guest-selector-table {
+}
+
+.guest-row {
+    background-color: lightgray;
+    width: 300px;
+}
+.guest-checkbox {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: skyblue;
+}
+.guest-name {
+    color: darkblue;
+    min-width: 240px;
+    font-size: medium;
+}
+.guest-shirt {
+    font-size: medium;
+    width: 40px;
+}

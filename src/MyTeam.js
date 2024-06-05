@@ -1,78 +1,79 @@
-import React, { useReducer} from "react";
+import React, {useContext} from "react";
 //import { useAuth0 } from "@auth0/auth0-react";
-import reducer from "./Reducer";
 import './Styles.css';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-//import Jumbotron from "react-bootstrap/Jumbotron";
-import PrintPreview from "./PrintPreview";
-//import ManageGuests from "./ManageGuests";
 import Selector from "./Selector";
+import PrintTeamsheet from "./PrintTeamsheet";
+import Guests from "./Guests";
+//import {getFixtures, getNextFixture} from "./Fixtures";
+import UserContext from './UserContext';
 
-import GUESTS from "./GuestList.json";
-import Teams from "./TeamData.json";
-import Round from "./Round";
-//import FixtureDetails from "./FixtureDetails";
-
-const MyTeam = () => {
+function MyTeam( {user, teamName, round, players, selected, guests, fixtures, dispatch}) {
     //const { user } = useAuth0();
 
-   // console.log("Props: ", props);
+    const myPlayers = players.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
+    const myGuests = guests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
 
-    let teamId=16;
-    let theRound = Round();
+    // const nextFixture = getNextFixture(getFixtures(teamName));
+    //
+    // if (typeof nextFixture === 'undefined') {
+    //     console.log("The function returned undefined.");
+    //     nextFixture.hometeam = "";
+    //     nextFixture.awayteam = "";
+    // }
 
-    const initialState = {
-        round: theRound,
-        team: Teams[teamId-1].name,
-        selected: [],
-        guests: GUESTS.sort((a, b) => a.name > b.name),
-    };
 
-    const [state, dispatch] = useReducer(reducer, initialState);
-
-    const { round, team, selected, guests } = state;
+    const { data } = useContext(UserContext);
 
     return (
-        // <div>
-        //     <h1>MyTeam</h1>
-        //     Hello {user.name} {user.email}
-        //
-        // </div>
+
+        <div>
 
 
-        <div className="home-page">
-
-
-            <h1>{team}</h1>
+                    <div>
+                        <h1>{data.usernamename}</h1>
+                    </div>
+            <h1>{teamName}</h1>
 
             <Container>
                 <Row>
-                    <Col md={3} >
+                    <Col>
+                        <h3>Players</h3>
                         <div style={{padding: 4}}>
                             <Selector
                                 round={round}
-                                team={team}
-                                guests={guests}
+                                team={teamName}
+                                guests={myGuests}
                                 selected={selected}
                                 dispatch={dispatch}
+                                players={myPlayers}
+                                fixtures={fixtures}
                             />
-                        </div>
-                        <div>
-                            {/*<ManageGuests team={team} guests={guests} dispatch={dispatch} />*/}
                         </div>
                     </Col>
                     <Col>
-                        <PrintPreview round={round} team={team} selected={selected} />
+                        <h3>Guests</h3>
+                        <Guests
+                            team={teamName}
+                            selected={selected}
+                            dispatch={dispatch}
+                        />
+                        <hr/>
+                        <PrintTeamsheet selected={selected}/>
                     </Col>
                 </Row>
+
             </Container>
         </div>
 
-
-
     );
+
+    function extractPlayersByTeam(plr) {
+        return plr.team === teamName;
+    }
+
 };
 
 export default MyTeam;

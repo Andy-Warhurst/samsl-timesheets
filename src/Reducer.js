@@ -25,6 +25,24 @@ function reducer(state, action) {
         guests: action.payload,
       };
 
+    case "CHANGE_TEAMNAME":
+      return {
+        ...state,
+        teamName: action.payload,
+      };
+
+    case "CHANGE_USER":
+      return {
+        ...state,
+        user: action.payload,
+      };
+
+    case "CHANGE_PLAYERS":
+      return {
+        ...state,
+        players: action.payload,
+      };
+
     default:
       return state;
   }

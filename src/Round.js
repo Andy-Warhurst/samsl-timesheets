@@ -1,5 +1,5 @@
 const Round = () => {
-    return 3;
+    return 7;
 }
 
 export default Round;
