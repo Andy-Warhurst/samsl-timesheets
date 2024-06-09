@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {PDFDocument, rgb } from 'pdf-lib';
 
 // Import the image
 import sampleImage from './assets/SAMSL-logo.png';
+import UserContext from "./UserContext";
 
 const CreateAndPrintPDF = (props)=> {
 
-    var availablePlayers = props.selected;
-    console.log("Selected: " +props.selected);
-
+    const { data } = useContext(UserContext);
+    const availablePlayers = data.selectedPlayers;
     const createPdf = async () => {
 
         const drawTable = (data, x, y, rowHeight, columnWidths) => {

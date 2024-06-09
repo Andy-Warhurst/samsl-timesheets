@@ -46,7 +46,6 @@ function MyTeam( {user, teamName, round, players, selected, guests, fixtures, di
                                 round={round}
                                 team={teamName}
                                 guests={myGuests}
-                                selected={selected}
                                 dispatch={dispatch}
                                 players={myPlayers}
                                 fixtures={fixtures}
@@ -57,8 +56,6 @@ function MyTeam( {user, teamName, round, players, selected, guests, fixtures, di
                         <h3>Guests</h3>
                         <Guests
                             team={teamName}
-                            selected={selected}
-                            dispatch={dispatch}
                         />
                         <hr/>
                         <PrintTeamsheet selected={selected}/>

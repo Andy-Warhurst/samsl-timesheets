@@ -1,38 +1,44 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "./Guests.css";
-import axios from "axios";
+//import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import UserContext from "./UserContext";
+import { useGuests } from './GuestContext';
 
-function Guests({team, selected, dispatch}) {
+function Guests({team}) {
 
-    const [myState, setState] = React.useState({items: [], DetailsLoaded: false})
-    const {DetailsLoaded, items} = myState;
+    const {  guests, deleteGuest, addGuest, updateGuest } = useGuests();
+
+    const [myGuests, setMyGuests] = useState(guests);
+
+    const [myGuestState, setMyGuestState] =
+        useState({GuestsLoaded: false, guestList: []});
+
     const [guestText, setGuestText] = useState('');
 
-    let reloadRequired = true;
+    const { data, updateUserField } = useContext(UserContext);
 
-    function updateSelected(selection) {
+    function updateSelected (selection) {
 
         var updatedSelections = [];
-        updatedSelections = updatedSelections.concat(selected);
+        updatedSelections = updatedSelections.concat(data.selectedPlayers);
 
         if (!updatedSelections.includes(selection)) {
-            // updatedSelections[updatedSelections.length] = selection;
             updatedSelections.push(selection);
         } else {
             var index = updatedSelections.indexOf(selection);
             updatedSelections.splice(index, 1);
         }
 
-        dispatch({type: 'CHANGE_SELECTED', payload: updatedSelections});
-
+        updateUserField('selectedPlayers', updatedSelections);
     }
-
 
     function updateShirtNumber(guest, number) {
         guest.shirtno = number;
+
+        updateGuest({id: guest.id, name: guest.name, team: guest.team, shirtno: guest.shirtno});
 
     }
 
@@ -41,55 +47,33 @@ function Guests({team, selected, dispatch}) {
     }
 
     function nextId() {
-        const ids = myState.items.map(item => item.id);
+        const ids = myGuests.map(item => item.id);
         const maxId = ids.length > 0 ? Math.max(...ids) : 0;
         return (maxId + 1) + '';
     }
 
+    async function deleteGuestById(id) {
 
-    async function addGuest(name, team) {
+        deleteGuest(id);
+        let index = myGuests.findIndex(element => element.id === id);
+        myGuests.splice(index, 1);
+        setMyGuests(myGuests);
+
+    }
+
+
+    async function addNewGuest(name, team, shirtno) {
         try {
-            const response =
-                await axios.put(`https://hja6wvb9hc.execute-api.us-west-1.amazonaws.com/items`,
-                    {id: nextId(), name: name, team: team});
-            reloadRequired = true;
-            console.log(response.data);
+            const theId = nextId();
+            myGuests.push({ id: theId, name, team, shirtno });
+            setMyGuests(myGuests);
+            addGuest({id: theId, name: name, team: team, shirtno: shirtno});
         } catch (error) {
             console.error(error);
         }
     };
 
-    async function deleteGuest(id) {
-        try {
-            const response =
-                await axios.delete(`https://hja6wvb9hc.execute-api.us-west-1.amazonaws.com/items/${id}`);
-            reloadRequired = true;
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-
-    }
-
-    if (reloadRequired === true) {
-        axios.get(
-            "https://hja6wvb9hc.execute-api.us-west-1.amazonaws.com/items"
-        )
-            .then((res) => {
-                setState({
-                    items: res.data.filter(extractPlayersByTeam),
-                    DetailsLoaded: true,
-                });
-                reloadRequired = false;
-            });
-    }
-    if (!DetailsLoaded)
-        return (
-            <div>
-                <h1> Please wait.... </h1>
-            </div>
-        );
-    if (items.length === 0) {
+    if (myGuests.length === 0) {
         return (
             <div>
                 <table>
@@ -134,7 +118,7 @@ function Guests({team, selected, dispatch}) {
                                 <th>Name</th>
                                 <th>Shirt</th>
                             </tr>
-                            {items.map(p => (
+                            {myGuests.filter(extractPlayersByTeam).map(p => (
                                 <tr>
                                     <td>
                                         <input
@@ -152,6 +136,7 @@ function Guests({team, selected, dispatch}) {
                                             id={"gshirtnumber".concat(p.id)}
                                             name={"gshirtnumber".concat(p.id)}
                                             type="text"
+                                            value={p.shirtno}
                                             onChange={(e) => updateShirtNumber(p, e.target.value)}
                                         />
                                     </td>
@@ -160,7 +145,7 @@ function Guests({team, selected, dispatch}) {
                                             variant="primary"
                                             id={"gdelete".concat(p.id)}
                                             style={{fontSize: 12}}
-                                            onClick={() => deleteGuest(p.id)}
+                                            onClick={() => deleteGuestById(p.id)}
                                         >
                                             X
                                         </Button>
@@ -188,7 +173,7 @@ function Guests({team, selected, dispatch}) {
                                 <Button
                                     variant="primary"
                                     style={{fontSize: 12}}
-                                    onClick={() => addGuest(guestText, "University Old Boys")}
+                                    onClick={() => addNewGuest(guestText, "University Old Boys", "")}
                                 >
                                     Add
                                 </Button>

@@ -10,6 +10,7 @@ import AuthenticationGuard from './authentication-guard';
 import PrintTeamsheet from "./PrintTeamsheet";
 import Players from "./players";
 import { UserProvider } from './UserContext';
+import {GuestProvider} from "./GuestContext";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossOrigin="anonymous"
         />
+            <GuestProvider>
             <UserProvider>
                 <Router>
         <div style={{display: 'flex', flexDirection: 'column', height: '100vh'}}>
@@ -47,6 +49,8 @@ function App() {
             </div>
         </Router>
         </UserProvider>
+
+                </GuestProvider>
         </div>
     );
 }

@@ -1,32 +1,30 @@
 import "./Selector.css"
-import React from "react";
+import React, {useContext} from "react";
 import FormControl from "react-bootstrap/FormControl";
+import UserContext from "./UserContext";
 
 //const Rounds = [1,2,3,4,5,6,7,8];
 
-const Selector = ({round, team, guests, selected, dispatch, players, fixtures}) => {
+const Selector = ({round, team, guests, dispatch, players, fixtures}) => {
 
 
+  const { data, updateUserField } = useContext(UserContext);
 
   //console.log(fixtures);
-
-  //var availablePlayers = players;
 
   function updateSelected (selection) {
 
     var updatedSelections = [];
-    updatedSelections = updatedSelections.concat(selected);
+    updatedSelections = updatedSelections.concat(data.selectedPlayers);
 
     if (!updatedSelections.includes(selection)) {
-      // updatedSelections[updatedSelections.length] = selection;
       updatedSelections.push(selection);
     } else {
       var index = updatedSelections.indexOf(selection);
       updatedSelections.splice(index, 1);
     }
 
-    dispatch({type: 'CHANGE_SELECTED', payload: updatedSelections});
-
+    updateUserField('selectedPlayers', updatedSelections);
   }
 
   function updateShirtNumber(player, number) {
