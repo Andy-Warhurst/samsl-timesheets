@@ -7,8 +7,9 @@ import GUESTS from "./GuestList.json";
 import {useReducer} from "react";
 import reducer from "./Reducer";
 import PLAYERS from "./Players.json";
-import {extractFixturesByTeam, getFixtures} from "./Fixtures";
+import {extractFixturesByTeam} from "./Fixtures";
 //import axios from "axios";
+import {useFixtures} from "./FixtureContext";
 
 function Home() {
     const { isAuthenticated } = useAuth0();
@@ -22,9 +23,8 @@ function Home() {
 
     const myTeam = "University Old Boys";
 
-    let myFixtures = getFixtures();
-    myFixtures = myFixtures.filter(extractFixturesByTeam(myTeam));
-
+    const { fixtures } = useFixtures();
+    const myFixtures = fixtures.filter(extractFixturesByTeam(myTeam));
 
     const initialState = {
         user: "",
@@ -33,11 +33,10 @@ function Home() {
         players: PLAYERS,
         selected: [],
         guests: GUESTS,
-        fixtures: myFixtures , // myFixtures
     };
 
     const [state, dispatch] = useReducer(reducer, initialState);
-    const {user, teamName, round, players, selected, guests, fixtures} = state;
+    const {user, teamName, round, players, selected, guests} = state;
 
 
     //PLAYERS.data.filter(extractPlayersByTeam());
@@ -84,7 +83,7 @@ function Home() {
                             players={players}
                             selected={selected}
                             guests={guests}
-                            fixtures={fixtures}
+                            fixtures={myFixtures}
                             dispatch={dispatch}
                         />
                     </>

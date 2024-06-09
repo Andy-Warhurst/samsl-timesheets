@@ -16,6 +16,8 @@ function MyTeam( {user, teamName, round, players, selected, guests, fixtures, di
     const myPlayers = players.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
     const myGuests = guests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
 
+    console.log("A fixture: ", fixtures[7]);
+
     // const nextFixture = getNextFixture(getFixtures(teamName));
     //
     // if (typeof nextFixture === 'undefined') {
