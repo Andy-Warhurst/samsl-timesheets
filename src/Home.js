@@ -3,7 +3,6 @@ import * as React from "react";
 import MyTeam from "./MyTeam";
 import Round from "./Round";
 import {useState} from "react";
-import PLAYERS from "./Players.json";
 import {extractFixturesByTeam} from "./Fixtures";
 import {useFixtures} from "./FixtureContext";
 import {useData} from "./DataContext";
@@ -24,12 +23,11 @@ function Home() {
         user: "",
         teamName: myTeam,
         round : Round(),
-        players: PLAYERS,
         selected: [],
     };
 
     const [state] = useState(initialState);
-    const {user, teamName, round, players, selected} = state;
+    const {user, teamName, round,  selected} = state;
 
     return (
         <div>
@@ -49,7 +47,6 @@ function Home() {
                             user={user}
                             teamName={teamName}
                             round={round}
-                            players={players}
                             selected={selected}
                             fixtures={myFixtures}
                         />

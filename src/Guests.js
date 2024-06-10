@@ -125,7 +125,7 @@ function Guests({team}) {
                                 <th>Name</th>
                                 <th>Shirt</th>
                             </tr>
-                            {myGuests.filter(extractPlayersByTeam).map(p => (
+                            {myGuests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name).map(p => (
                                 <tr>
                                     <td>
                                         <input

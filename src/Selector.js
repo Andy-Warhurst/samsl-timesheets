@@ -4,10 +4,15 @@ import FormControl from "react-bootstrap/FormControl";
 //import UserContext from "./UserContext";
 import {useData} from "./DataContext";
 
+import PLAYERS from "./Players.json";
+
 //const Rounds = [1,2,3,4,5,6,7,8];
 
-const Selector = ({players}) => {
+const Selector = (props) => {
 
+    const allPlayers = PLAYERS;
+
+    const players = allPlayers.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
 
   //const { data, updateUserField } = useContext(UserContext);
   const { data, updateUserField } = useData();
@@ -76,6 +81,10 @@ const Selector = ({players}) => {
 
 
 );
+
+    function extractPlayersByTeam(plr) {
+        return plr.team === props.team;
+    }
 };
 
 export default Selector;

@@ -10,11 +10,8 @@ import Guests from "./Guests";
 //import {getFixtures, getNextFixture} from "./Fixtures";
 import {useData} from './DataContext';
 
-function MyTeam( {teamName, round, players, selected, fixtures}) {
+function MyTeam( {teamName, round, selected, fixtures}) {
     //const { user } = useAuth0();
-
-    const myPlayers = players.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
-    //const myGuests = guests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
 
 
     // const nextFixture = getNextFixture(getFixtures(teamName));
@@ -31,13 +28,10 @@ function MyTeam( {teamName, round, players, selected, fixtures}) {
     return (
 
         <div>
-
-
-                    <div>
-                        <h1>{data.usernamename}</h1>
-                    </div>
+            <div>
+                <h1>{data.usernamename}</h1>
+            </div>
             <h1>{teamName}</h1>
-
             <Container>
                 <Row>
                     <Col>
@@ -46,7 +40,6 @@ function MyTeam( {teamName, round, players, selected, fixtures}) {
                             <Selector
                                 round={round}
                                 team={teamName}
-                                players={myPlayers}
                                 fixtures={fixtures}
                             />
                         </div>
@@ -60,15 +53,9 @@ function MyTeam( {teamName, round, players, selected, fixtures}) {
                         <PrintTeamsheet selected={selected}/>
                     </Col>
                 </Row>
-
             </Container>
         </div>
-
     );
-
-    function extractPlayersByTeam(plr) {
-        return plr.team === teamName;
-    }
 
 }
 
