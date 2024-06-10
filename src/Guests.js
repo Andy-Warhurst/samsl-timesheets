@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import "./Guests.css";
 //import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -14,8 +14,8 @@ function Guests({team}) {
 
     const [myGuests, setMyGuests] = useState(guests);
 
-    const [myGuestState, setMyGuestState] =
-        useState({GuestsLoaded: false, guestList: []});
+    // const [myGuestState, setMyGuestState] =
+    //     useState({GuestsLoaded: false, guestList: []});
 
     const [guestText, setGuestText] = useState('');
 

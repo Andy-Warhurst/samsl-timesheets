@@ -1,25 +1,23 @@
 import {useAuth0} from "@auth0/auth0-react";
 import * as React from "react";
 import MyTeam from "./MyTeam";
-// import Teams from "./TeamData.json";
 import Round from "./Round";
 import GUESTS from "./GuestList.json";
-import {useReducer} from "react";
-import reducer from "./Reducer";
+import {useReducer, useState} from "react";
 import PLAYERS from "./Players.json";
 import {extractFixturesByTeam} from "./Fixtures";
-//import axios from "axios";
 import {useFixtures} from "./FixtureContext";
+import {useData} from "./DataContext";
 
 function Home() {
     const { isAuthenticated } = useAuth0();
 
- //   const [myState, setState] =
- //       React.useState({items: [], DetailsLoaded: false })
- //   const {DetailsLoaded, items} = myState;
+    const {  data } = useData();
+    const theTeams = data.userTeams;
 
-    //let reloadUserTeamsRequired = true;
-    //let reloadPlayersRequired = true;
+
+
+
 
     const myTeam = "University Old Boys";
 
@@ -35,7 +33,7 @@ function Home() {
         guests: GUESTS,
     };
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useState(initialState);
     const {user, teamName, round, players, selected, guests} = state;
 
 

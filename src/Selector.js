@@ -1,5 +1,5 @@
 import "./Selector.css"
-import React, {useContext} from "react";
+import React from "react";
 import FormControl from "react-bootstrap/FormControl";
 //import UserContext from "./UserContext";
 import {useData} from "./DataContext";
