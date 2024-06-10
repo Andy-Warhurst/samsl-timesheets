@@ -79,7 +79,7 @@ function Guests({team}) {
         return (
             <div>
                 <table>
-                    <body>
+                    <tbody>
                     <tr>
                         <td>
                             <div>
@@ -105,7 +105,7 @@ function Guests({team}) {
 
                         </td>
                     </tr>
-                    </body>
+                    </tbody>
                 </table>
             </div>
         )
@@ -114,9 +114,12 @@ function Guests({team}) {
         <div className="guest-page">
             {/*<Container>*/}
             <table>
+                <tbody>
                 <tr>
                     <td>
                         <table className="guest-selector-table">
+
+                            <tbody>
                             <tr>
                                 <th>Select</th>
                                 <th>Name</th>
@@ -156,6 +159,8 @@ function Guests({team}) {
                                     </td>
                                 </tr>
                             ))}
+
+                            </tbody>
                         </table>
 
                     </td>
@@ -186,10 +191,12 @@ function Guests({team}) {
 
                     </td>
                 </tr>
+
+                </tbody>
             </table>
 
         </div>
-    );
+);
 }
 
 export default Guests;
