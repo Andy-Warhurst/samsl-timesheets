@@ -4,7 +4,8 @@ import "./Guests.css";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import UserContext from "./UserContext";
+//import UserContext from "./UserContext";
+import {useData} from "./DataContext";
 import { useGuests } from './GuestContext';
 
 function Guests({team}) {
@@ -18,7 +19,8 @@ function Guests({team}) {
 
     const [guestText, setGuestText] = useState('');
 
-    const { data, updateUserField } = useContext(UserContext);
+    //const { data, updateUserField } = useContext(UserContext);
+    const { data, updateUserField } = useData();
 
     function updateSelected (selection) {
 

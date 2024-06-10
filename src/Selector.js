@@ -1,14 +1,16 @@
 import "./Selector.css"
 import React, {useContext} from "react";
 import FormControl from "react-bootstrap/FormControl";
-import UserContext from "./UserContext";
+//import UserContext from "./UserContext";
+import {useData} from "./DataContext";
 
 //const Rounds = [1,2,3,4,5,6,7,8];
 
 const Selector = ({round, team, guests, dispatch, players, fixtures}) => {
 
 
-  const { data, updateUserField } = useContext(UserContext);
+  //const { data, updateUserField } = useContext(UserContext);
+  const { data, updateUserField } = useData();
 
   //console.log(fixtures);
 

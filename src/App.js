@@ -9,7 +9,7 @@ import Guests from "./Guests";
 import AuthenticationGuard from './authentication-guard';
 import PrintTeamsheet from "./PrintTeamsheet";
 import Players from "./players";
-import { UserProvider } from './UserContext';
+import { DataProvider } from './DataContext';
 import {GuestProvider} from "./GuestContext";
 import {FixtureProvider} from "./FixtureContext";
 
@@ -25,7 +25,7 @@ function App() {
         />
             <FixtureProvider>
             <GuestProvider>
-            <UserProvider>
+            <DataProvider>
                 <Router>
         <div style={{display: 'flex', flexDirection: 'column', height: '100vh'}}>
 
@@ -50,7 +50,7 @@ function App() {
                 </div>
             </div>
         </Router>
-        </UserProvider>
+        </DataProvider>
 
                 </GuestProvider>
             </FixtureProvider>

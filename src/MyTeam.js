@@ -8,7 +8,7 @@ import Selector from "./Selector";
 import PrintTeamsheet from "./PrintTeamsheet";
 import Guests from "./Guests";
 //import {getFixtures, getNextFixture} from "./Fixtures";
-import UserContext from './UserContext';
+import {useData} from './DataContext';
 
 function MyTeam( {user, teamName, round, players, selected, guests, fixtures, dispatch}) {
     //const { user } = useAuth0();
@@ -27,7 +27,7 @@ function MyTeam( {user, teamName, round, players, selected, guests, fixtures, di
     // }
 
 
-    const { data } = useContext(UserContext);
+    const { data } = useData();
 
     return (
 

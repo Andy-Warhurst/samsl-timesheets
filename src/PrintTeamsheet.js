@@ -3,11 +3,11 @@ import {PDFDocument, rgb } from 'pdf-lib';
 
 // Import the image
 import sampleImage from './assets/SAMSL-logo.png';
-import UserContext from "./UserContext";
+import {useData} from "./DataContext";
 
 const CreateAndPrintPDF = (props)=> {
 
-    const { data } = useContext(UserContext);
+    const { data } = useData();
     const availablePlayers = data.selectedPlayers;
     const createPdf = async () => {
 
