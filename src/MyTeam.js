@@ -10,7 +10,7 @@ import Guests from "./Guests";
 //import {getFixtures, getNextFixture} from "./Fixtures";
 import {useData} from './DataContext';
 
-function MyTeam( {user, teamName, round, players, selected, fixtures}) {
+function MyTeam( {teamName, round, players, selected, fixtures}) {
     //const { user } = useAuth0();
 
     const myPlayers = players.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
@@ -70,6 +70,6 @@ function MyTeam( {user, teamName, round, players, selected, fixtures}) {
         return plr.team === teamName;
     }
 
-};
+}
 
 export default MyTeam;
