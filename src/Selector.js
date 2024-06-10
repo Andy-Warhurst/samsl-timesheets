@@ -40,39 +40,42 @@ const Selector = ({players}) => {
 
         // <div className="player-container">
 
-          <table className="player-selector-table">
-            <tr >
-              <th>Select</th>
-              <th>Name</th>
-              <th>Shirt</th>
+      <table className="player-selector-table">
+        <tbody>
+        <tr>
+          <th>Select</th>
+          <th>Name</th>
+          <th>Shirt</th>
+        </tr>
+        {players.map(p => (
+            <tr>
+              <td>
+                <input
+                    className="player-checkbox"
+                    type="checkbox"
+                    id={"playing".concat(p.id)}
+                    size="20"
+                    onClick={() => updateSelected(p)}
+                />
+              </td>
+              <td className="player-name" align='left'>{p.name}</td>
+              <td width='50'>
+                <FormControl
+                    className={"player-shirt"}
+                    id={"shirtnumber".concat(p.id)}
+                    name={"shirtnumber".concat(p.id)}
+                    type="text"
+                    onChange={(e) => updateShirtNumber(p, e.target.value)}
+                />
+              </td>
             </tr>
-            {players.map(p => (
-                <tr>
-                  <td>
-                    <input
-                        className="player-checkbox"
-                        type="checkbox"
-                        id={"playing".concat(p.id)}
-                        size="20"
-                        onClick={() => updateSelected(p)}
-                    />
-                  </td>
-                  <td className="player-name" align='left'>{p.name}</td>
-                  <td width='50'>
-                    <FormControl
-                        className={"player-shirt"}
-                        id={"shirtnumber".concat(p.id)}
-                        name={"shirtnumber".concat(p.id)}
-                        type="text"
-                        onChange={(e) => updateShirtNumber(p, e.target.value)}
-                    />
-                  </td>
-                </tr>
-            ))}
-          </table>
+        ))}
+
+        </tbody>
+      </table>
 
 
-  );
+);
 };
 
 export default Selector;
