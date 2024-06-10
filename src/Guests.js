@@ -73,12 +73,13 @@ function Guests({team}) {
         } catch (error) {
             console.error(error);
         }
-    };
+    }
 
     if (myGuests.length === 0) {
         return (
             <div>
                 <table>
+                    <body>
                     <tr>
                         <td>
                             <div>
@@ -104,6 +105,7 @@ function Guests({team}) {
 
                         </td>
                     </tr>
+                    </body>
                 </table>
             </div>
         )
