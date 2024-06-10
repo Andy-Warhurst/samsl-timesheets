@@ -6,7 +6,7 @@ import {useData} from "./DataContext";
 
 //const Rounds = [1,2,3,4,5,6,7,8];
 
-const Selector = ({round, team,  dispatch, players, fixtures}) => {
+const Selector = ({players}) => {
 
 
   //const { data, updateUserField } = useContext(UserContext);
