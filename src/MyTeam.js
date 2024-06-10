@@ -10,13 +10,12 @@ import Guests from "./Guests";
 //import {getFixtures, getNextFixture} from "./Fixtures";
 import {useData} from './DataContext';
 
-function MyTeam( {user, teamName, round, players, selected, guests, fixtures, dispatch}) {
+function MyTeam( {user, teamName, round, players, selected, fixtures}) {
     //const { user } = useAuth0();
 
     const myPlayers = players.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
-    const myGuests = guests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
+    //const myGuests = guests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
 
-    console.log("A fixture: ", fixtures[7]);
 
     // const nextFixture = getNextFixture(getFixtures(teamName));
     //
@@ -47,8 +46,6 @@ function MyTeam( {user, teamName, round, players, selected, guests, fixtures, di
                             <Selector
                                 round={round}
                                 team={teamName}
-                                guests={myGuests}
-                                dispatch={dispatch}
                                 players={myPlayers}
                                 fixtures={fixtures}
                             />
