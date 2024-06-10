@@ -13,6 +13,7 @@ function Home() {
 
     const {  data } = useData();
     const theTeams = data.userTeams;
+    console.log(theTeams);
 
     const myTeam = "University Old Boys";
 

@@ -17,6 +17,8 @@ export const GuestProvider = ({ children }) => {
     const [guests, setGuests] = useState([]);
     const [selectedGuest, setSelectedGuest] = useState(null);
 
+    console.log(selectedGuest);
+
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetchAllGuests();
