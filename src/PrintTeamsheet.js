@@ -5,7 +5,7 @@ import {PDFDocument, rgb } from 'pdf-lib';
 import sampleImage from './assets/SAMSL-logo.png';
 import {useData} from "./DataContext";
 
-const CreateAndPrintPDF = (props)=> {
+const CreateAndPrintPDF = ()=> {
 
     const { data } = useData();
     const availablePlayers = data.selectedPlayers;
@@ -98,7 +98,7 @@ const CreateAndPrintPDF = (props)=> {
         const t2rows = [' ',' ', ' ']
         const table2Data = [
             [' ','HT','FT','ET (HT)','ET(FT)','Pens'],
-            ...t2rows.map(player => [" ",  " "," "," "," "," "] ),
+            ...t2rows.map(()=> [" ",  " "," "," "," "," "] ),
         ];
 
         drawTable (table2Data, 30, 270, 20, [250, 50, 50, 50,50,50]);
