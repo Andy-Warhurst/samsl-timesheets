@@ -126,7 +126,7 @@ function Guests({team}) {
                                 <th>Shirt</th>
                             </tr>
                             {myGuests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name).map(p => (
-                                <tr>
+                                <tr key={p.id}>
                                     <td>
                                         <input
                                             className="guest-checkbox"
