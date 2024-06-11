@@ -8,32 +8,25 @@ import {useFixtures} from "./FixtureContext";
 import {useData} from "./DataContext";
 
 function Home() {
-    const { isAuthenticated } = useAuth0();
-
-    const {  data } = useData();
-    const theTeams = data.userTeams;
-    console.log(theTeams);
-
-    const myTeam = "University Old Boys";
-
+    const { isAuthenticated,user } = useAuth0();
+    const { isLoaded, getTeamForUser } = useData();
     const { fixtures } = useFixtures();
-    const myFixtures = fixtures.filter(extractFixturesByTeam(myTeam));
+    let myFixtures = [];
+    let myTeam ="";
 
     const initialState = {
-        user: "",
-        teamName: myTeam,
         round : Round(),
         selected: [],
     };
-
     const [state] = useState(initialState);
-    const {user, teamName, round,  selected} = state;
+    const {  round,  selected} = state;
 
+    if (isAuthenticated) {
+        myTeam = getTeamForUser(user.email);
+        myFixtures = fixtures.filter(extractFixturesByTeam(myTeam));
+    }
     return (
         <div>
-
-            {/*<header></header>*/}
-
                 {!isAuthenticated && (
                     <>
                         <p>Please Login to use this App. </p>
@@ -41,17 +34,17 @@ function Home() {
                     </>
                 )}
                 {isAuthenticated && (
+                    isLoaded && (
                     <>
-
                         <MyTeam
                             user={user}
-                            teamName={teamName}
+                            teamName={myTeam}
                             round={round}
                             selected={selected}
                             fixtures={myFixtures}
                         />
                     </>
-                )}
+                ))}
 
         </div>
     );

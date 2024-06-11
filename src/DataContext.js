@@ -12,16 +12,18 @@ export const useData = () => {
 export const DataProvider = ({ children }) => {
     //const [data, setData] = useState([]);
 
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const [data, setData] = useState({
         userTeams: [],
-        selectedPlayers: []
+        selectedPlayers: [],
     });
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetchAllUserTeams();
             setData({userTeams: result, selectedPlayers: []});
+            setIsLoaded(true);
         };
         fetchData();
     }, []);
@@ -34,9 +36,21 @@ export const DataProvider = ({ children }) => {
         }));
     };
 
+
+    const getTeamForUser = (theUserEmail) => {
+        for (let item of data.userTeams) {
+            if (item.email === theUserEmail) {
+                return item.team;
+            }
+        }
+        return "";
+    }
+
     return (
         <DataContext.Provider value={{
+            isLoaded,
             data,
+            getTeamForUser,
             updateUserField
         }}>
             {children}
