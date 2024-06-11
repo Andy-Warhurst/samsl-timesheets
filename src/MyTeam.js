@@ -8,7 +8,7 @@ import Selector from "./Selector";
 import PrintTeamsheet from "./PrintTeamsheet";
 import Guests from "./Guests";
 //import {getFixtures, getNextFixture} from "./Fixtures";
-import {useData} from './DataContext';
+//import {useData} from './DataContext';
 
 function MyTeam( {teamName, round, selected, fixtures}) {
     //const { user } = useAuth0();
@@ -23,14 +23,15 @@ function MyTeam( {teamName, round, selected, fixtures}) {
     // }
 
 
-    const { data } = useData();
+    //const { data } = useData();
 
     return (
 
         <div>
-            <div>
-                <h1>{data.usernamename}</h1>
-            </div>
+            {/*{ fixtures && (*/}
+            {/*<div>*/}
+            {/*    <h1>Fixtures: {fixtures.length}</h1>*/}
+            {/*</div> )}*/}
             <h1>{teamName}</h1>
             <Container>
                 <Row>
