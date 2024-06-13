@@ -3,7 +3,7 @@ import * as React from "react";
 import MyTeam from "./MyTeam";
 import Round from "./Round";
 import {useState} from "react";
-import {extractFixturesByTeam} from "./Fixtures";
+import { extractFixturesByTeam} from "./Fixtures";
 import {useFixtures} from "./FixtureContext";
 import {useData} from "./DataContext";
 
@@ -24,6 +24,15 @@ function Home() {
     if (isAuthenticated) {
         myTeam = getTeamForUser(user.email);
         myFixtures = fixtures.filter(extractFixturesByTeam(myTeam));
+
+        // const theFixture = fixtures.filter(extractFixturesByRound(round));
+        //
+        // if (theFixture.length > 0) {
+        //     updateUserField('homeTeamName', theFixture[0].hometeam);
+        //     updateUserField('awayTeamName', theFixture[0].awayteam);
+        //     updateUserField('venue', theFixture[0].venue);
+        //     updateUserField('dateAndTime', theFixture[0].date + " " + theFixture[0].time);
+        // }
     }
     return (
         <div>

@@ -17,12 +17,27 @@ export const DataProvider = ({ children }) => {
     const [data, setData] = useState({
         userTeams: [],
         selectedPlayers: [],
+        theTeamName : "Unknown",
+        homeTeamName : "Unknown",
+        awayTeamName : "Unknown",
+        dateAndTime : "Unknown",
+        venue : "Unknown",
+        round : "Unknown",
     });
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetchAllUserTeams();
-            setData({userTeams: result, selectedPlayers: []});
+            setData({
+                userTeams: result,
+                selectedPlayers: [],
+                theTeamName : "This Team",
+                homeTeamName : "Home Team",
+                awayTeamName : "Away Team",
+                dateAndTime : "KO Time",
+                venue : "Place and Pitch",
+                round : "Unknown",
+            });
             setIsLoaded(true);
         };
         fetchData();
@@ -40,6 +55,7 @@ export const DataProvider = ({ children }) => {
     const getTeamForUser = (theUserEmail) => {
         for (let item of data.userTeams) {
             if (item.email === theUserEmail) {
+                data.theTeamName = item.team;
                 return item.team;
             }
         }

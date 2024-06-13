@@ -1,5 +1,356 @@
 [
   {
+    "id":12170799,
+    "dateofbirth":"03\/07\/1987",
+    "type":"Shared",
+    "status":"Active",
+    "team":"Royal Ajvar",
+    "name":"Petar Radocaj",
+    "shirtno":""
+  },
+  {
+    "id":82384686,
+    "dateofbirth":"13\/02\/1969",
+    "type":"Sturt Fusion",
+    "status":"Active",
+    "team":"Sturt Fusion",
+    "name":"Richard Barker",
+    "shirtno":""
+  },
+  {
+    "id":10101861,
+    "dateofbirth":"19\/08\/1985",
+    "type":"Plympton FC",
+    "status":"Active",
+    "team":"Plympton FC",
+    "name":"Kevin Lyne",
+    "shirtno":""
+  },
+  {
+    "id":66028077,
+    "dateofbirth":"07\/06\/1955",
+    "type":"Adelaide Spurs",
+    "status":"Active",
+    "team":"Adelaide Spurs",
+    "name":"Stephen Long",
+    "shirtno":""
+  },
+  {
+    "id":12170799,
+    "dateofbirth":"03\/07\/1987",
+    "type":"Royal Ajvar",
+    "status":"Active",
+    "team":"Royal Ajvar",
+    "name":"Petar Radocaj",
+    "shirtno":""
+  },
+  {
+    "id":11272367,
+    "dateofbirth":"18\/05\/1986",
+    "type":"Mercedes",
+    "status":"Active",
+    "team":"Mercedes",
+    "name":"Iker Olalde",
+    "shirtno":""
+  },
+  {
+    "id":10958709,
+    "dateofbirth":"05\/05\/1984",
+    "type":"Shared",
+    "status":"Active",
+    "team":"Pultney Old Scolars Already CSL or SAASL Registere",
+    "name":"Mary Waldron",
+    "shirtno":""
+  },
+  {
+    "id":10797892,
+    "dateofbirth":"03\/02\/1965",
+    "type":"Plympton FC",
+    "status":"Active",
+    "team":"Plympton FC",
+    "name":"Bosko Jaric",
+    "shirtno":""
+  },
+  {
+    "id":10103500,
+    "dateofbirth":"01\/04\/1988",
+    "type":"Plympton FC",
+    "status":"Active",
+    "team":"Plympton FC",
+    "name":"Kane Wilkins",
+    "shirtno":""
+  },
+  {
+    "id":10312965,
+    "dateofbirth":"14\/01\/1983",
+    "type":"Sturt Fusion",
+    "status":"Active",
+    "team":"Sturt Fusion",
+    "name":"Joseph Campbell",
+    "shirtno":""
+  },
+  {
+    "id":12138213,
+    "dateofbirth":"21\/09\/1984",
+    "type":"Pulteney Crabs",
+    "status":"Active",
+    "team":"Pulteney Crabs",
+    "name":"Mohsen Dorraki",
+    "shirtno":""
+  },
+  {
+    "id":82444977,
+    "dateofbirth":"01\/08\/1976",
+    "type":"Southern Cross",
+    "status":"Active",
+    "team":"Southern Cross",
+    "name":"Andrew Mangle",
+    "shirtno":""
+  },
+  {
+    "id":12168149,
+    "dateofbirth":"26\/02\/1988",
+    "type":"Pulteney Crabs",
+    "status":"Active",
+    "team":"Pulteney Crabs",
+    "name":"Ken Siu",
+    "shirtno":""
+  },
+  {
+    "id":10026915,
+    "dateofbirth":"27\/12\/1979",
+    "type":"Sturt Marion Legends",
+    "status":"Active",
+    "team":"Sturt Marion OB",
+    "name":"Duncan Ashcroft",
+    "shirtno":""
+  },
+  {
+    "id":10100733,
+    "dateofbirth":"12\/07\/1989",
+    "type":"Sturt Marion Legends",
+    "status":"Active",
+    "team":"Sturt Marion OB",
+    "name":"Liam Fagg",
+    "shirtno":""
+  },
+  {
+    "id":11253939,
+    "dateofbirth":"15\/01\/1966",
+    "type":"Adelaide Spurs",
+    "status":"Active",
+    "team":"Adelaide Spurs",
+    "name":"Arthur Paragalas",
+    "shirtno":""
+  },
+  {
+    "id":11424043,
+    "dateofbirth":"11\/11\/1980",
+    "type":"University Orange",
+    "status":"Active",
+    "team":"University Orange",
+    "name":"Pablo Barros Martins Comino",
+    "shirtno":""
+  },
+  {
+    "id":10551080,
+    "dateofbirth":"13\/05\/1985",
+    "type":"Southern Cross",
+    "status":"Active",
+    "team":"Southern Cross",
+    "name":"Teejay Ades",
+    "shirtno":""
+  },
+  {
+    "id":11713830,
+    "dateofbirth":"22\/09\/1967",
+    "type":"Southern Cross",
+    "status":"Active",
+    "team":"Southern Cross",
+    "name":"Stephen Golding",
+    "shirtno":""
+  },
+  {
+    "id":12168392,
+    "dateofbirth":"27\/06\/1983",
+    "type":"Shared",
+    "status":"Active",
+    "team":"Adelaide Spurs",
+    "name":"Ben Gibson",
+    "shirtno":""
+  },
+  {
+    "id":85121895,
+    "dateofbirth":"02\/07\/1971",
+    "type":"Shared",
+    "status":"Active",
+    "team":"Adelaide Spurs",
+    "name":"Shalesh Sami",
+    "shirtno":""
+  },
+  {
+    "id":10096870,
+    "dateofbirth":"17\/07\/1959",
+    "type":"Adelaide Spurs",
+    "status":"Active",
+    "team":"Adelaide Spurs",
+    "name":"Stephen Clarke",
+    "shirtno":""
+  },
+  {
+    "id":10099201,
+    "dateofbirth":"10\/06\/1967",
+    "type":"Adelaide Spurs",
+    "status":"Active",
+    "team":"Adelaide Spurs",
+    "name":"Biagio De Fazio",
+    "shirtno":""
+  },
+  {
+    "id":10707109,
+    "dateofbirth":"09\/05\/1977",
+    "type":"Royal Ajvar",
+    "status":"Active",
+    "team":"Royal Ajvar",
+    "name":"Sinisa Cosic",
+    "shirtno":""
+  },
+  {
+    "id":81049827,
+    "dateofbirth":"27\/03\/1972",
+    "type":"Shared",
+    "status":"Active",
+    "team":"Austria",
+    "name":"Jasmin Bolic",
+    "shirtno":""
+  },
+  {
+    "id":76058148,
+    "dateofbirth":"07\/12\/1966",
+    "type":"West Beach",
+    "status":"Active",
+    "team":"West Beach",
+    "name":"Damian Hassell",
+    "shirtno":""
+  },
+  {
+    "id":10104009,
+    "dateofbirth":"04\/02\/1972",
+    "type":"Sturt Marion Legends",
+    "status":"Active",
+    "team":"Sturt Marion OB",
+    "name":"Allan Barnes",
+    "shirtno":""
+  },
+  {
+    "id":10267534,
+    "dateofbirth":"12\/05\/1982",
+    "type":"Sturt Marion Legends",
+    "status":"Active",
+    "team":"Sturt Marion OB",
+    "name":"Ciaran Cullen",
+    "shirtno":""
+  },
+  {
+    "id":10099211,
+    "dateofbirth":"14\/08\/1966",
+    "type":"Southern Cross",
+    "status":"Active",
+    "team":"Southern Cross",
+    "name":"Thomas Haering",
+    "shirtno":""
+  },
+  {
+    "id":10099548,
+    "dateofbirth":"06\/08\/1977",
+    "type":"Shared",
+    "status":"Active",
+    "team":"University Old Boys",
+    "name":"Bruno Mendes",
+    "shirtno":""
+  },
+  {
+    "id":64004039,
+    "dateofbirth":"08\/04\/1985",
+    "type":"Mercedes",
+    "status":"Active",
+    "team":"Mercedes",
+    "name":"Nicholas De Rosa",
+    "shirtno":""
+  },
+  {
+    "id":64022700,
+    "dateofbirth":"29\/04\/1968",
+    "type":"Croatia",
+    "status":"Active",
+    "team":"Croatia",
+    "name":"Nikola Podnar",
+    "shirtno":""
+  },
+  {
+    "id":64025570,
+    "dateofbirth":"19\/07\/1966",
+    "type":"West Beach",
+    "status":"Active",
+    "team":"West Beach",
+    "name":"John Raschella",
+    "shirtno":""
+  },
+  {
+    "id":11195042,
+    "dateofbirth":"20\/11\/1978",
+    "type":"Pulteney Crabs",
+    "status":"Active",
+    "team":"Pulteney Crabs",
+    "name":"Joe Bennett",
+    "shirtno":""
+  },
+  {
+    "id":85501310,
+    "dateofbirth":"11\/09\/1983",
+    "type":"Austria",
+    "status":"Active",
+    "team":"Austria",
+    "name":"Mikki Lim",
+    "shirtno":""
+  },
+  {
+    "id":10104186,
+    "dateofbirth":"03\/03\/1987",
+    "type":"Southern Cross",
+    "status":"Active",
+    "team":"Southern Cross",
+    "name":"Kevin O'Connor",
+    "shirtno":""
+  },
+  {
+    "id":12164320,
+    "dateofbirth":"23\/02\/1960",
+    "type":"Southern Cross",
+    "status":"Active",
+    "team":"Southern Cross",
+    "name":"Rob Vorel",
+    "shirtno":""
+  },
+  {
+    "id":12163242,
+    "dateofbirth":"26\/04\/1980",
+    "type":"Pulteney Crabs",
+    "status":"Active",
+    "team":"Pulteney Crabs",
+    "name":"Yue On Gabriel Leung",
+    "shirtno":""
+  },
+  {
+    "id":85185973,
+    "dateofbirth":"08\/01\/1979",
+    "type":"Sporting",
+    "status":"Active",
+    "team":"Sporting",
+    "name":"Nathan Ackarie",
+    "shirtno":""
+  },
+  {
     "id":10954534,
     "dateofbirth":"10\/10\/1985",
     "type":"Southern Cross",
@@ -846,15 +1197,6 @@
     "shirtno":""
   },
   {
-    "id":10996694,
-    "dateofbirth":"23\/11\/1988",
-    "type":"West Beach",
-    "status":"Active",
-    "team":"West Beach",
-    "name":"Paul Rossall",
-    "shirtno":""
-  },
-  {
     "id":11271322,
     "dateofbirth":"26\/07\/1982",
     "type":"University Orange",
@@ -990,30 +1332,12 @@
     "shirtno":""
   },
   {
-    "id":10086727,
-    "dateofbirth":"06\/05\/1986",
-    "type":"Royal Ajvar",
-    "status":"Active",
-    "team":"Royal Ajvar",
-    "name":"Michael Giorgines",
-    "shirtno":""
-  },
-  {
     "id":52761806,
     "dateofbirth":"09\/12\/1986",
     "type":"Mercedes",
     "status":"Active",
     "team":"Mercedes",
     "name":"Joel Stockill",
-    "shirtno":""
-  },
-  {
-    "id":10611587,
-    "dateofbirth":"08\/10\/1988",
-    "type":"Royal Ajvar",
-    "status":"Active",
-    "team":"Royal Ajvar",
-    "name":"Bojan Stegnjaic",
     "shirtno":""
   },
   {
@@ -2157,15 +2481,6 @@
     "status":"Active",
     "team":"Southern Sharks",
     "name":"Marcus Hadfield",
-    "shirtno":""
-  },
-  {
-    "id":12086670,
-    "dateofbirth":"17\/08\/1988",
-    "type":"West Beach",
-    "status":"Active",
-    "team":"West Beach",
-    "name":"Andrew Dunn",
     "shirtno":""
   },
   {

@@ -7,31 +7,18 @@ import Col from "react-bootstrap/Col";
 import Selector from "./Selector";
 import PrintTeamsheet from "./PrintTeamsheet";
 import Guests from "./Guests";
+import FixtureDropdown from "./FixtureDropdown";
 //import {getFixtures, getNextFixture} from "./Fixtures";
 //import {useData} from './DataContext';
 
 function MyTeam( {teamName, round, selected, fixtures}) {
-    //const { user } = useAuth0();
-
-
-    // const nextFixture = getNextFixture(getFixtures(teamName));
-    //
-    // if (typeof nextFixture === 'undefined') {
-    //     console.log("The function returned undefined.");
-    //     nextFixture.hometeam = "";
-    //     nextFixture.awayteam = "";
-    // }
-
-
-    //const { data } = useData();
 
     return (
 
         <div>
-            {/*{ fixtures && (*/}
-            {/*<div>*/}
-            {/*    <h1>Fixtures: {fixtures.length}</h1>*/}
-            {/*</div> )}*/}
+            <div>
+                <FixtureDropdown fixtures={fixtures} />
+            </div>
             <h1>{teamName}</h1>
             <Container>
                 <Row>

@@ -13,6 +13,14 @@ export function extractFixturesByTeam(teamName) {
     };
 }
 
+export
+function extractFixturesByRound(round) {
+    return function(x) {
+        const keepIt = (x.round === round);
+        return (keepIt);
+    };
+}
+
 export function getNextFixture(teamName) {
 
     const matchingFixtures = FIXTURES.filter(selectFixture);

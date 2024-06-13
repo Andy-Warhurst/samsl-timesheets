@@ -1,34 +1,50 @@
 import React, { useState } from 'react';
-import {useFixtures} from "./FixtureContext";
+//import {useFixtures} from "./FixtureContext";
+import {useData} from "./DataContext";
+import {extractFixturesByRound} from "./Fixtures";
 
-const FixtureDropdown = ({ options }) => {
+const FixtureDropdown = ({ fixtures }) => {
 
-    const {fixtures} = useFixtures();
+    const [round, setRound] = useState('1');
 
-    const fixtureOptions = [];
-    fixtures.forEach(item => {
-        fixtureOptions.push({ game: item.homeTeam + " v" + item.awayTeam });
-    });
+    const { updateUserField } = useData();
+    const Rounds = [' ','7','8','9','10','11','12','13','14','15','16','17','18'];
 
-    options = fixtureOptions;
+    function updateRound (selection) {
 
-    const [selectedOption, setSelectedOption] = useState(options[0]);
+        if (selection !== round) {
+            setRound(selection);
+            updateUserField('round', selection);
+            const theFixture = fixtures.filter(extractFixturesByRound(selection));
 
-    const handleChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
+            if (theFixture.length > 0) {
+                updateUserField('homeTeamName', theFixture[0].hometeam);
+                updateUserField('awayTeamName', theFixture[0].awayteam);
+                updateUserField('venue', theFixture[0].venue);
+                updateUserField('dateAndTime', theFixture[0].date + " " + theFixture[0].time);
+            }
+        }
+    }
 
     return (
         <div>
-            {/*<label htmlFor="dropdown">Choose an option:</label>*/}
-            <select id="dropdown" value={selectedOption} onChange={handleChange}>
-                {options.map((option, index) => (
-                    <option key={index} value={option}>
-                        {option}
-                    </option>
-                ))}
-            </select>
-            {/*<p>Selected: {selectedOption}</p>*/}
+            <label htmlFor="round">
+                Round
+                <select
+                    id="round"
+                    value={round}
+                    placeholder="Round"
+                    onChange={(e) =>
+                        updateRound (e.target.value)
+                    }
+                >
+                    {Rounds.map((round) => (
+                        <option key={round} value={round}>
+                            {round}
+                        </option>
+                    ))}
+                </select>
+            </label>
         </div>
     );
 };

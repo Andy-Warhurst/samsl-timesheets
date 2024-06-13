@@ -1,14 +1,46 @@
 import React from 'react';
-import {PDFDocument, rgb } from 'pdf-lib';
+import {PDFDocument, rgb} from 'pdf-lib';
 
 // Import the image
 import sampleImage from './assets/SAMSL-logo.png';
 import {useData} from "./DataContext";
 
-const CreateAndPrintPDF = ()=> {
+const CreateAndPrintPDF = () => {
 
-    const { data } = useData();
-    const availablePlayers = data.selectedPlayers;
+    const {data} = useData();
+    let availablePlayers = data.selectedPlayers;
+
+    const rowsToAdd = 18 - availablePlayers.length;
+
+    if (rowsToAdd > 0) {
+
+        for (let i = 0; i < rowsToAdd; i++) {
+            availablePlayers.push(
+                {
+                    "id": 99999999,
+                    "dateofbirth": "",
+                    "type": "",
+                    "status": "",
+                    "team": "",
+                    "name": "",
+                    "shirtno": ""
+                });
+        }
+    }
+
+    availablePlayers = availablePlayers.sort((a, b) => {
+        if (a.name === "" && b.name !== "") {
+            return 1; // Move a to the end
+        }
+        if (a.name !== "" && b.name === "") {
+            return -1; // Move b to the end
+        }
+        if (a.name === "" && b.name === "") {
+            return 0; // Keep the same order if both are empty
+        }
+        return a.name.localeCompare(b.name);
+    });
+
     const createPdf = async () => {
 
         const drawTable = (data, x, y, rowHeight, columnWidths) => {
@@ -20,13 +52,13 @@ const CreateAndPrintPDF = ()=> {
             // Draw header row
             data[0].forEach((header, i) => {
                 page.drawText(header, {
-                    x: xCount +2,
-                    y: y+4,
+                    x: xCount + 2,
+                    y: y + 4,
                     size: 12,
                 });
                 page.drawRectangle({
                     x: xCount,
-                    y: y ,
+                    y: y,
                     width: columnWidths[i],
                     height: rowHeight,
                     borderColor: rgb(0, 0, 0),
@@ -38,23 +70,27 @@ const CreateAndPrintPDF = ()=> {
 
             // Draw data rows
             data.slice(1).forEach((row, rowIndex) => {
-                xCount = x + 4;
-                row.forEach((cell, colIndex) => {
-                    page.drawText(cell, {
-                        x: xCount +2,
-                        y: (y +4) - (rowIndex + 1) * rowHeight,
-                        size: 12,
+
+                if (rowIndex < 22) {
+
+                    xCount = x + 4;
+                    row.forEach((cell, colIndex) => {
+                        page.drawText(cell, {
+                            x: xCount + 2,
+                            y: (y + 4) - (rowIndex + 1) * rowHeight,
+                            size: rowHeight - 4,
+                        });
+                        page.drawRectangle({
+                            x: xCount,
+                            y: y - (rowIndex + 1) * rowHeight,
+                            width: columnWidths[colIndex],
+                            height: rowHeight,
+                            borderColor: rgb(0, 0.1, 0.1),
+                            borderWidth: 1,
+                        });
+                        xCount = xCount + columnWidths[colIndex];
                     });
-                    page.drawRectangle({
-                        x: xCount,
-                        y: y - (rowIndex + 1) * rowHeight,
-                        width: columnWidths[colIndex],
-                        height: rowHeight,
-                        borderColor: rgb(0, 0.1, 0.1),
-                        borderWidth: 1,
-                    });
-                    xCount = xCount + columnWidths[colIndex];
-                });
+                }
             });
         };
 
@@ -88,39 +124,53 @@ const CreateAndPrintPDF = ()=> {
         //     borderColor: rgb(1, 1, 1),
         //     fillColor: rgb(0, 0, 0)});
 
+
         const tableData = [
-            ['Shirt','Name','Guest','Goals','Cards','Injuries','3-2-1'],
-            ...availablePlayers.map(player => [" "+player.shirtno,  player.name," "," "," "," "," "] ),
+            ['Shirt', 'Name', 'Guest', 'Goals', 'Cards', 'Injuries', '3-2-1'],
+            ...availablePlayers.map(player => [" " + player.shirtno, player.name, " ", " ", " ", " ", " "]),
         ];
 
-            drawTable (tableData, 50, 660, 20, [30, 180, 40, 40,40,140,40]);
+        drawTable(tableData, 50, 660, 16, [30, 180, 40, 40, 40, 140, 40]);
 
-        const t2rows = [' ',' ', ' ']
+        const t2rows = [data.homeTeamName, data.awayTeamName]
         const table2Data = [
-            [' ','HT','FT','ET (HT)','ET(FT)','Pens'],
-            ...t2rows.map(()=> [" ",  " "," "," "," "," "] ),
+            [' ', 'HT', 'FT', 'ET (HT)', 'ET(FT)', 'Pens'],
+            ...t2rows.map((teamName) => [teamName, " ", " ", " ", " ", " "]),
         ];
 
-        drawTable (table2Data, 30, 270, 20, [250, 50, 50, 50,50,50]);
+        drawTable(table2Data, 30, 270, 20, [250, 50, 50, 50, 50, 50]);
 
-        const t3rows = ["Team Manager/Delegate",  "Referee"]
+        const t3rows = ["Team Manager/Delegate", "Referee"]
         const table3Data = [
-            ['Officials','Name','Signature'],
-            ...t3rows.map(player => [player ," "," "]),
+            ['Officials', 'Name', 'Signature'],
+            ...t3rows.map(player => [player, " ", " "]),
         ];
 
-        drawTable (table3Data, 30, 180, 24, [180, 180, 180]);
-
-
+        drawTable(table3Data, 30, 180, 20, [180, 180, 180]);
 
 
         page.drawRectangle({
             x: 30,
-            y: 740 ,
+            y: 740,
             width: 540,
             height: 48,
             borderColor: rgb(0, 0, 0),
             borderWidth: 1,
+        });
+
+
+        page.drawText(data.homeTeamName + " v " + data.awayTeamName, {
+            x: 60,
+            y: 770,
+            size: 18,
+        });
+
+        page.drawText("Round : " + data.round
+            + " \t Venue: " + data.venue
+            + " \t Date/Time: " + data.dateAndTime, {
+            x: 60,
+            y: 750,
+            size: 12,
         });
 
         // page.drawRectangle({
@@ -153,7 +203,7 @@ const CreateAndPrintPDF = ()=> {
 
         page.drawRectangle({
             x: 30,
-            y: 10 ,
+            y: 10,
             width: 270,
             height: 80,
             borderColor: rgb(0, 0, 0),
@@ -168,7 +218,7 @@ const CreateAndPrintPDF = ()=> {
 
         page.drawRectangle({
             x: 300,
-            y: 10 ,
+            y: 10,
             width: 270,
             height: 80,
             borderColor: rgb(0, 0, 0),
@@ -181,7 +231,7 @@ const CreateAndPrintPDF = ()=> {
             size: 14,
         });
 
-        page.drawText('Players of ', {
+        page.drawText('Players of ' + data.theTeamName, {
             x: 50,
             y: 700,
             size: 14,
@@ -206,7 +256,7 @@ const CreateAndPrintPDF = ()=> {
         const pdfBytes = await pdfDoc.save();
 
         // Convert the PDF to Blob
-        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const blob = new Blob([pdfBytes], {type: 'application/pdf'});
 
         // Convert the Blob to an object URL
         const url = URL.createObjectURL(blob);
