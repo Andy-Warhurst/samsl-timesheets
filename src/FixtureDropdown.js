@@ -5,9 +5,8 @@ import {extractFixturesByRound} from "./Fixtures";
 
 const FixtureDropdown = ({ fixtures, team }) => {
 
-    const [round, setRound] = useState('1');
-
-    const { updateUserField } = useData();
+    const { data, updateUserField } = useData();
+    const [round, setRound] = useState(data.round);
     const Rounds = [' ','8','9','10','11','12','13','14','15','16','17','18'];
 
     function updateRound (selection) {
@@ -30,14 +29,13 @@ const FixtureDropdown = ({ fixtures, team }) => {
         <div>
             <label htmlFor="round"
                    style={{fontSize: 28}}>
-                Round
+                Round:
                 <select
                     id="round"
                     value={round}
                     style={{fontSize: 28}}
                     placeholder="Round"
-                    onChange={(e) =>
-                        updateRound (e.target.value)
+                    onChange={(e) => updateRound (e.target.value)
                     }
                 >
                     {Rounds.map((round) => (

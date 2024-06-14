@@ -36,7 +36,7 @@ export const DataProvider = ({ children }) => {
                 awayTeamName : "Away Team",
                 dateAndTime : "KO Time",
                 venue : "Place and Pitch",
-                round : "Unknown",
+                round : "8",
             });
             setIsLoaded(true);
         };
