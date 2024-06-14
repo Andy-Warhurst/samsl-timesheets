@@ -10,7 +10,7 @@ const CreateAndPrintPDF = () => {
     const {data} = useData();
     let availablePlayers = data.selectedPlayers;
 
-    const rowsToAdd = 18 - availablePlayers.length;
+    const rowsToAdd = 24 - availablePlayers.length;
 
     if (rowsToAdd > 0) {
 
@@ -71,7 +71,7 @@ const CreateAndPrintPDF = () => {
             // Draw data rows
             data.slice(1).forEach((row, rowIndex) => {
 
-                if (rowIndex < 22) {
+                if (rowIndex < 24) {
 
                     xCount = x + 4;
                     row.forEach((cell, colIndex) => {
@@ -108,7 +108,7 @@ const CreateAndPrintPDF = () => {
         // Add the image to the page at the specified position and size
         page.drawImage(pngImage, {
             x: 510,
-            y: 740,
+            y: 720,
             width: imageWidth,
             height: imageHeight,
         });
@@ -130,7 +130,7 @@ const CreateAndPrintPDF = () => {
             ...availablePlayers.map(player => [" " + player.shirtno, player.name, " ", " ", " ", " ", " "]),
         ];
 
-        drawTable(tableData, 50, 660, 16, [30, 180, 40, 40, 40, 140, 40]);
+        drawTable(tableData, 34, 680, 18, [32, 180, 40, 40, 40, 166, 40]);
 
         const t2rows = [data.homeTeamName, data.awayTeamName]
         const table2Data = [
@@ -138,7 +138,7 @@ const CreateAndPrintPDF = () => {
             ...t2rows.map((teamName) => [teamName, " ", " ", " ", " ", " "]),
         ];
 
-        drawTable(table2Data, 30, 270, 20, [250, 50, 50, 50, 50, 50]);
+        drawTable(table2Data, 34, 218, 20, [268, 54, 54, 54, 54, 54]);
 
         const t3rows = ["Team Manager/Delegate", "Referee"]
         const table3Data = [
@@ -146,30 +146,30 @@ const CreateAndPrintPDF = () => {
             ...t3rows.map(player => [player, " ", " "]),
         ];
 
-        drawTable(table3Data, 30, 180, 20, [180, 180, 180]);
+        drawTable(table3Data, 34, 146, 20, [202, 168, 168]);
 
 
         page.drawRectangle({
-            x: 30,
-            y: 740,
+            x: 37,
+            y: 719,
             width: 540,
-            height: 48,
+            height: 50,
             borderColor: rgb(0, 0, 0),
             borderWidth: 1,
         });
 
 
         page.drawText(data.homeTeamName + " v " + data.awayTeamName, {
-            x: 60,
-            y: 770,
+            x: 50,
+            y: 750,
             size: 18,
         });
 
         page.drawText("Round : " + data.round
             + " \t Venue: " + data.venue
             + " \t Date/Time: " + data.dateAndTime, {
-            x: 60,
-            y: 750,
+            x: 50,
+            y: 730,
             size: 12,
         });
 
@@ -202,38 +202,72 @@ const CreateAndPrintPDF = () => {
         // });
 
         page.drawRectangle({
-            x: 30,
+            x: 37,
             y: 10,
-            width: 270,
+            width: 269,
             height: 80,
             borderColor: rgb(0, 0, 0),
             borderWidth: 1,
         });
 
         page.drawText('Teams ', {
-            x: 36,
+            x: 50,
             y: 74,
             size: 14,
         });
 
+        page.drawText('Check all information on this teamsheeet is correct.', {
+            x: 50,
+            y: 60,
+            size: 10,
+        });
+
+
+        page.drawText('Then sign above if you agree it is correct. ', {
+            x: 50,
+            y: 48,
+            size: 10,
+        });
+
+        page.drawText('SMS results to 0423 380 333 by 5:00pm.', {
+            x: 50,
+            y: 36,
+            size: 10,
+        });
+
+
+
         page.drawRectangle({
-            x: 300,
+            x: 306,
             y: 10,
-            width: 270,
+            width: 269,
             height: 80,
             borderColor: rgb(0, 0, 0),
             borderWidth: 1,
         });
 
         page.drawText('Referees ', {
-            x: 306,
+            x: 313,
             y: 74,
             size: 14,
         });
 
+        page.drawText('Return this teamsheet to the team after the game OR', {
+            x: 313,
+            y: 60,
+            size: 10,
+        });
+
+
+        page.drawText('hand it to Razor, Dave Sedgwick or Andy Whitfield. ', {
+            x: 313,
+            y: 48,
+            size: 10,
+        });
+
         page.drawText('Players of ' + data.theTeamName, {
             x: 50,
-            y: 700,
+            y: 704,
             size: 14,
         });
 
