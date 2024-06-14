@@ -70,7 +70,7 @@ function Home() {
                                     )}
                                 </div>
                                 <div className="component">
-                                    <FixtureDropdown fixtures={fixtures} />
+                                    <FixtureDropdown fixtures={fixtures} team={myTeam} />
                                 </div>
                             </div>
 

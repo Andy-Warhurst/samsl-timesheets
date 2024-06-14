@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {useData} from "./DataContext";
 import {extractFixturesByRound} from "./Fixtures";
 
-const FixtureDropdown = ({ fixtures }) => {
+const FixtureDropdown = ({ fixtures, team }) => {
 
     const [round, setRound] = useState('1');
 
@@ -15,7 +15,7 @@ const FixtureDropdown = ({ fixtures }) => {
         if (selection !== round) {
             setRound(selection);
             updateUserField('round', selection);
-            const theFixture = fixtures.filter(extractFixturesByRound(selection));
+            const theFixture = fixtures.filter(extractFixturesByRound(selection, team));
 
             if (theFixture.length > 0) {
                 updateUserField('homeTeamName', theFixture[0].hometeam);

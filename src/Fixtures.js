@@ -14,9 +14,11 @@ export function extractFixturesByTeam(teamName) {
 }
 
 export
-function extractFixturesByRound(round) {
+function extractFixturesByRound(round, teamName) {
     return function(x) {
-        const keepIt = (x.round === round);
+        const isHome = (x.hometeam === teamName);
+        const isAway = (x.awayteam === teamName);
+        const keepIt = (x.round === round) && (isHome || isAway);
         return (keepIt);
     };
 }
