@@ -309,3 +309,12 @@ i {
   flex: 1; /* Flex grow: allow components to grow and take available space */
   text-align: center; /* Center text in component */
 }
+
+
+.rego-image {
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  width: 800px;
+}
+

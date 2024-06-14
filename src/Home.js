@@ -8,6 +8,7 @@ import {useFixtures} from "./FixtureContext";
 import {useData} from "./DataContext";
 import TeamsDropdown from "./TeamsDropdown";
 import FixtureDropdown from "./FixtureDropdown";
+import rego from "./assets/SAMSL_Register.png";
 
 function Home() {
     const { isAuthenticated,user } = useAuth0();
@@ -53,8 +54,15 @@ function Home() {
         <div>
                 {!isAuthenticated && (
                     <>
-                        <p>Please Login to use this App. </p>
 
+                        <h1>Welcome</h1>
+
+                        <p>This is the new application to help you manage your team(S).</p>
+
+                        <p>From June 2024 you will need to login to use this App. </p>
+
+
+                        <img src={rego} className="rego-image" alt="Registration Instructions" />
                     </>
                 )}
                 {isAuthenticated && (
