@@ -294,3 +294,18 @@ i {
   width: 100%;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed: flex-start, flex-end, center, space-around */
+  align-items: center; /* Align items vertically: flex-start, flex-end, center, baseline, stretch */
+  gap: 10px; /* Add space between components if needed */
+}
+
+/* Style for the individual components */
+.component {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  flex: 1; /* Flex grow: allow components to grow and take available space */
+  text-align: center; /* Center text in component */
+}

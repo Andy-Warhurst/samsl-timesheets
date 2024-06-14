@@ -55,11 +55,26 @@ export const DataProvider = ({ children }) => {
     const getTeamForUser = (theUserEmail) => {
         for (let item of data.userTeams) {
             if (item.email === theUserEmail) {
-                data.theTeamName = item.team;
+                //data.theTeamName = item.team;
                 return item.team;
             }
         }
         return "";
+    }
+
+    const getTeamsForUser = (theUserEmail) => {
+        const teams = [];
+        for (let item of data.userTeams) {
+            if (item.email === theUserEmail) {
+                teams.push(item.team);
+            }
+        }
+
+        // if (teams.length > 0) {
+        //     data.theTeamName = teams[teams.length - 1]; // Set the last matching team name
+        // }
+
+        return teams;
     }
 
     return (
@@ -67,6 +82,7 @@ export const DataProvider = ({ children }) => {
             isLoaded,
             data,
             getTeamForUser,
+            getTeamsForUser,
             updateUserField
         }}>
             {children}

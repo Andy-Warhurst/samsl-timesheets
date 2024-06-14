@@ -7,19 +7,21 @@ import Col from "react-bootstrap/Col";
 import Selector from "./Selector";
 import PrintTeamsheet from "./PrintTeamsheet";
 import Guests from "./Guests";
-import FixtureDropdown from "./FixtureDropdown";
+//import FixtureDropdown from "./FixtureDropdown";
 //import {getFixtures, getNextFixture} from "./Fixtures";
-//import {useData} from './DataContext';
+import {useData} from './DataContext';
 
-function MyTeam( {teamName, round, selected, fixtures}) {
+function MyTeam( {round, selected, fixtures}) {
+
+    const { data} = useData();
 
     return (
 
         <div>
-            <div>
-                <FixtureDropdown fixtures={fixtures} />
-            </div>
-            <h1>{teamName}</h1>
+            {/*<div>*/}
+            {/*    <FixtureDropdown fixtures={fixtures} />*/}
+            {/*</div>*/}
+            {/*<h1>{data.theTeamName}</h1>*/}
             <Container>
                 <Row>
                     <Col>
@@ -27,7 +29,7 @@ function MyTeam( {teamName, round, selected, fixtures}) {
                         <div style={{padding: 4}}>
                             <Selector
                                 round={round}
-                                team={teamName}
+                                team={data.theTeamName}
                                 fixtures={fixtures}
                             />
                         </div>
@@ -35,7 +37,7 @@ function MyTeam( {teamName, round, selected, fixtures}) {
                     <Col>
                         <h3>Guests</h3>
                         <Guests
-                            team={teamName}
+                            team={data.theTeamName}
                         />
                         <hr/>
                         <PrintTeamsheet selected={selected}/>

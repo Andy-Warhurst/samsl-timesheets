@@ -8,7 +8,7 @@ const FixtureDropdown = ({ fixtures }) => {
     const [round, setRound] = useState('1');
 
     const { updateUserField } = useData();
-    const Rounds = [' ','7','8','9','10','11','12','13','14','15','16','17','18'];
+    const Rounds = [' ','8','9','10','11','12','13','14','15','16','17','18'];
 
     function updateRound (selection) {
 
@@ -28,11 +28,13 @@ const FixtureDropdown = ({ fixtures }) => {
 
     return (
         <div>
-            <label htmlFor="round">
+            <label htmlFor="round"
+                   style={{fontSize: 28}}>
                 Round
                 <select
                     id="round"
                     value={round}
+                    style={{fontSize: 28}}
                     placeholder="Round"
                     onChange={(e) =>
                         updateRound (e.target.value)
