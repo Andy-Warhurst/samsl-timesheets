@@ -28,13 +28,18 @@ export const PlayerProvider = ({ children }) => {
     }, []);
 
     const addPlayerHandler = async (player) => {
-        const newPlayer = await addPlayer(player);
-        setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
+        const newPlayerAdded = await addPlayer(player);
+        if (newPlayerAdded) {
+            setPlayers((prevPlayers) => [...prevPlayers, player]);
+        }
     };
 
     const updatePlayerHandler = async (updatedData) => {
         const updatedPlayer = await updatePlayer(updatedData.id, updatedData);
-        setPlayers((prevPlayers) => prevPlayers.map((player) => (player.id === updatedData.id ? updatedPlayer : player)));
+        if (updatedPlayer) {
+            setPlayers((prevPlayers) =>
+                prevPlayers.map((player) => (player.id === updatedData.id ? updatedPlayer : updatedData)));
+        }
     };
 
     const deletePlayerHandler = async (id) => {

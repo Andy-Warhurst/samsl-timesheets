@@ -1,12 +1,9 @@
 import "./Selector.css"
 import React from "react";
 import FormControl from "react-bootstrap/FormControl";
-//import UserContext from "./UserContext";
 import {useData} from "./DataContext";
 
 import PLAYERS from "./Players.json";
-
-//const Rounds = [1,2,3,4,5,6,7,8];
 
 const Selector = (props) => {
 
@@ -14,10 +11,8 @@ const Selector = (props) => {
 
     const players = allPlayers.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
 
-  //const { data, updateUserField } = useContext(UserContext);
   const { data, updateUserField } = useData();
 
-  //console.log(fixtures);
 
   function updateSelected (selection) {
 

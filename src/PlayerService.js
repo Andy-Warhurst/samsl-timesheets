@@ -14,14 +14,14 @@ const fetchPlayerById = async (id) => {
 
 const addPlayer = async (player) => {
     const response = await axios.put(`${apiBaseUrl}/players`, player);
-    return response.data;
+    return (response.status === 200);
 };
 
 const updatePlayer = async (id, updatedData) => {
 
     const response = await axios.put(`${apiBaseUrl}/players`, updatedData);
     //const response = await axios.put(`${apiBaseUrl}/players/${id}`, updatedData);
-    return response.data;
+    return (response.status === 200);
 };
 
 const deletePlayer = async (id) => {
