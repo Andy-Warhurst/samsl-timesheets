@@ -29,12 +29,19 @@ export const GuestProvider = ({ children }) => {
 
     const addGuestHandler = async (guest) => {
         const newGuest = await addGuest(guest);
-        setGuests((prevGuests) => [...prevGuests, newGuest]);
+        if (newGuest) {
+            setGuests((prevGuests) => [...prevGuests, guest]);
+        }
     };
 
     const updateGuestHandler = async (updatedData) => {
         const updatedGuest = await updateGuest(updatedData.id, updatedData);
-        setGuests((prevGuests) => prevGuests.map((guest) => (guest.id === updatedData.id ? updatedGuest : guest)));
+
+        if (updatedGuest) {
+            setGuests((prevGuests) => prevGuests.map((guest) =>
+                (guest.id === updatedData.id ? updatedData : guest)));
+        }
+
     };
 
     const deleteGuestHandler = async (id) => {
@@ -48,8 +55,12 @@ export const GuestProvider = ({ children }) => {
     };
 
     return (
-        <GuestContext.Provider value={{ guests,
-            fetchGuestByID: fetchGuestByIdHandler, addGuest: addGuestHandler, updateGuest: updateGuestHandler, deleteGuest: deleteGuestHandler }}>
+        <GuestContext.Provider value={{
+            guests,
+            fetchGuestByID: fetchGuestByIdHandler,
+            addGuest: addGuestHandler,
+            updateGuest: updateGuestHandler,
+            deleteGuest: deleteGuestHandler }}>
             {children}
         </GuestContext.Provider>
     );

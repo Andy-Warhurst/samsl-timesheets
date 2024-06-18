@@ -36,9 +36,7 @@ function MyTeam( {round, selected, fixtures}) {
                     </Col>
                     <Col>
                         <h3>Guests</h3>
-                        <Guests
-                            team={data.theTeamName}
-                        />
+                        <Guests/>
                         <hr/>
                         <PrintTeamsheet selected={selected}/>
                     </Col>

@@ -1,147 +1,95 @@
-import React, {useState} from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Guests.css";
-//import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-//import UserContext from "./UserContext";
-import {useData} from "./DataContext";
+import { useData } from "./DataContext";
 import { useGuests } from './GuestContext';
 
-function Guests({team}) {
+function Guests() {
+    console.log("Guests Component");
 
-    const {  guests, deleteGuest, addGuest, updateGuest } = useGuests();
-
-    const [myGuests, setMyGuests] = useState(guests);
-
-    // const [myGuestState, setMyGuestState] =
-    //     useState({GuestsLoaded: false, guestList: []});
-
+    const { guests, deleteGuest, addGuest, updateGuest } = useGuests();
+    const [myGuests, setMyGuests] = useState([]);
     const [guestText, setGuestText] = useState('');
-
-    //const { data, updateUserField } = useContext(UserContext);
     const { data, updateUserField } = useData();
 
-    function updateSelected (selection) {
+    useEffect(() => {
+        setMyGuests(guests.filter(guest => guest.team === data.theTeamName).sort((a, b) => a.name.localeCompare(b.name)));
+    }, [guests, data.theTeamName]);
 
-        var updatedSelections = [];
-        updatedSelections = updatedSelections.concat(data.selectedPlayers);
+    // myGuests.filter(guest => guest.team === team)
 
-        if (!updatedSelections.includes(selection)) {
-            updatedSelections.push(selection);
-        } else {
-            var index = updatedSelections.indexOf(selection);
-            updatedSelections.splice(index, 1);
-        }
+    const updateSelected = useCallback((selection) => {
+        const updatedSelections = data.selectedPlayers.includes(selection)
+            ? data.selectedPlayers.filter(player => player !== selection)
+            : [...data.selectedPlayers, selection];
 
         updateUserField('selectedPlayers', updatedSelections);
-    }
+    }, [data.selectedPlayers, updateUserField]);
 
-    function updateShirtNumber(guest, number) {
-        guest.shirtno = number;
+    const updateShirtNumber = useCallback((guest, number) => {
+        updateGuest({ ...guest, shirtno: number });
+    },[updateGuest]);  //
 
-        updateGuest({id: guest.id, name: guest.name, team: guest.team, shirtno: guest.shirtno});
-
-    }
-
-    function extractPlayersByTeam(plr) {
-        return plr.team === team;
-    }
-
-    function nextId() {
+    const nextId = useCallback(() => {
         const ids = myGuests.map(item => item.id);
         const maxId = ids.length > 0 ? Math.max(...ids) : 0;
-        return (maxId + 1) + '';
-    }
+        return (maxId + 1).toString();
+    }, [myGuests]);
 
-    async function deleteGuestById(id) {
+    const deleteGuestById = useCallback(async (id) => {
+        await deleteGuest(id);
+        setMyGuests(prevGuests => prevGuests.filter(guest => guest.id !== id));
+    }, [deleteGuest]);
 
-        deleteGuest(id);
-        let index = myGuests.findIndex(element => element.id === id);
-        myGuests.splice(index, 1);
-        setMyGuests(myGuests);
-
-    }
-
-
-    async function addNewGuest(name, team, shirtno) {
+    const addNewGuest = useCallback(async (name, team, shirtno) => {
         try {
             const theId = nextId();
-            myGuests.push({ id: theId, name, team, shirtno });
-            setMyGuests(myGuests);
-            addGuest({id: theId, name: name, team: team, shirtno: shirtno});
+            const newGuest = { id: theId, name, team, shirtno };
+            setMyGuests(prevGuests => [...prevGuests, newGuest]);
+            await addGuest(newGuest);
+            //setGuestText(''); // Clear the input field after adding a guest
         } catch (error) {
             console.error(error);
         }
-    }
+    }, [addGuest, nextId]);
 
-    if (myGuests.length === 0) {
-        return (
-            <div>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <div>
-                                <label htmlFor="guestname">Name:</label>
-                                <InputGroup>
-                                    <FormControl
-                                        placeholder="Guest's Name"
-                                        aria-label="Guest's Name"
-                                        aria-describedby="basic-addon2"
-                                        id="guestname"
-                                        style={{fontSize: 12}}
-                                        onChange={(e) => setGuestText(e.target.value)}
-                                    />
-                                    <Button
-                                        variant="primary"
-                                        style={{fontSize: 12}}
-                                        onClick={() => addGuest(guestText, team)}
-                                    >
-                                        Add
-                                    </Button>
-                                </InputGroup>
-                            </div>
 
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        )
-    }
     return (
         <div className="guest-page">
-            {/*<Container>*/}
             <table>
                 <tbody>
+
+                { (myGuests.length !== 0) ?
+
                 <tr>
                     <td>
                         <table className="guest-selector-table">
-
                             <tbody>
                             <tr>
                                 <th>Select</th>
                                 <th>Name</th>
                                 <th>Shirt</th>
                             </tr>
-                            {myGuests.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name).map(p => (
-                                <tr key={p.id}>
+                            {myGuests.map(p => (
+                                // {myGuests.filter(guest => guest.team === team).sort((a, b) => a.name.localeCompare(b.name)).map(p => (
+                                        <tr key={p.id}>
                                     <td>
                                         <input
                                             className="guest-checkbox"
                                             type="checkbox"
-                                            id={"gplaying".concat(p.id)}
+                                            id={"gplaying" + p.id}
                                             size="20"
                                             onClick={() => updateSelected(p)}
                                         />
                                     </td>
-                                    <td className="guest-name" align='left' id={"gname".concat(p.id)}>{p.name}</td>
+                                    <td className="guest-name" align='left' id={"gname" + p.id}>{p.name}</td>
                                     <td width='50'>
                                         <FormControl
-                                            className={"guest-shirt"}
-                                            id={"gshirtnumber".concat(p.id)}
-                                            name={"gshirtnumber".concat(p.id)}
+                                            className="guest-shirt"
+                                            id={"gshirtnumber" + p.id}
+                                            name={"gshirtnumber" + p.id}
                                             type="text"
                                             value={p.shirtno}
                                             onChange={(e) => updateShirtNumber(p, e.target.value)}
@@ -150,8 +98,8 @@ function Guests({team}) {
                                     <td>
                                         <Button
                                             variant="primary"
-                                            id={"gdelete".concat(p.id)}
-                                            style={{fontSize: 12}}
+                                            id={"gdelete" + p.id}
+                                            style={{ fontSize: 12 }}
                                             onClick={() => deleteGuestById(p.id)}
                                         >
                                             X
@@ -159,13 +107,11 @@ function Guests({team}) {
                                     </td>
                                 </tr>
                             ))}
-
                             </tbody>
                         </table>
-
                     </td>
                 </tr>
-
+                    : <tr><td><h4>No Guests</h4></td></tr>}
                 <tr>
                     <td>
                         <div>
@@ -176,27 +122,25 @@ function Guests({team}) {
                                     aria-label="Guest's Name"
                                     aria-describedby="basic-addon2"
                                     id="guestname"
-                                    style={{fontSize: 12}}
+                                    style={{ fontSize: 12 }}
+                                    value={guestText}
                                     onChange={(e) => setGuestText(e.target.value)}
                                 />
                                 <Button
                                     variant="primary"
-                                    style={{fontSize: 12}}
-                                    onClick={() => addNewGuest(guestText, "University Old Boys", "")}
+                                    style={{ fontSize: 12 }}
+                                    onClick={() => addNewGuest(guestText, data.theTeamName, '')}
                                 >
                                     Add
                                 </Button>
                             </InputGroup>
                         </div>
-
                     </td>
                 </tr>
-
                 </tbody>
             </table>
-
         </div>
-);
+    );
 }
 
 export default Guests;

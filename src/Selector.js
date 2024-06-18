@@ -75,7 +75,8 @@ const Selector = (props) => {
                         name={"shirtnumber".concat(p.id)}
                         type="text"
                         value={p.shirtno}
-                        onChange={(e) => updateShirtNumber(p, e.target.value)}
+                        onChange={(e) =>
+                            updateShirtNumber(p, e.target.value)}
                     />
                 </td>
             </tr>

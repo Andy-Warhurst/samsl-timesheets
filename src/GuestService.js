@@ -14,14 +14,15 @@ const fetchGuestById = async (id) => {
 
 const addGuest = async (guest) => {
     const response = await axios.put(`${apiBaseUrl}/items`, guest);
-    return response.data;
+    return (response.status === 200);
 };
 
 const updateGuest = async (id, updatedData) => {
 
     const response = await axios.put(`${apiBaseUrl}/items`, updatedData);
     //const response = await axios.put(`${apiBaseUrl}/items/${id}`, updatedData);
-    return response.data;
+    return (response.status === 200);
+
 };
 
 const deleteGuest = async (id) => {
