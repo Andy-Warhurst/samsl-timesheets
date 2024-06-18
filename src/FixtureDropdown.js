@@ -9,6 +9,21 @@ const FixtureDropdown = ({ fixtures, team }) => {
     const [round, setRound] = useState(data.round);
     const Rounds = [' ','8','9','10','11','12','13','14','15','16','17','18'];
 
+    function convertTime(timeStr) {
+        // Split the input string into hours and minutes parts
+        const [hoursPart, minutesPart] = timeStr.split('.');
+
+        // Convert the parts to integers
+        const hours = parseInt(hoursPart, 10);
+        let minutes = 0;
+
+        if (minutesPart) {
+            minutes = parseInt(minutesPart, 10) * (minutesPart.length === 1 ? 10 : 1);
+        }
+
+        return `${hours}:${minutes.toString().padStart(2, '0')}`;
+    }
+
     function updateRound (selection) {
 
         if (selection !== round) {
@@ -20,7 +35,7 @@ const FixtureDropdown = ({ fixtures, team }) => {
                 updateUserField('homeTeamName', theFixture[0].hometeam);
                 updateUserField('awayTeamName', theFixture[0].awayteam);
                 updateUserField('venue', theFixture[0].venue);
-                updateUserField('dateAndTime', theFixture[0].date + " " + theFixture[0].time);
+                updateUserField('dateAndTime', theFixture[0].date + " " + convertTime(theFixture[0].time));
             }
         }
     }
