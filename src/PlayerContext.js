@@ -14,10 +14,11 @@ export const usePlayers = () => {
 };
 
 export const PlayerProvider = ({ children }) => {
-    const [players, setPlayers] = useState([]);
-    const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-    console.log(selectedPlayer);
+    const [players, setPlayers] = useState([]);
+    const [selectedPlayer, setSelectedPlayer] = useState("");
+
+    //console.log(selectedPlayer);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,13 +29,18 @@ export const PlayerProvider = ({ children }) => {
     }, []);
 
     const addPlayerHandler = async (player) => {
-        const newPlayer = await addPlayer(player);
-        setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
+        const newPlayerAdded = await addPlayer(player);
+        if (newPlayerAdded) {
+            setPlayers((prevPlayers) => [...prevPlayers, player]);
+        }
     };
 
     const updatePlayerHandler = async (updatedData) => {
         const updatedPlayer = await updatePlayer(updatedData.id, updatedData);
-        setPlayers((prevPlayers) => prevPlayers.map((player) => (player.id === updatedData.id ? updatedPlayer : player)));
+        if (updatedPlayer) {
+            setPlayers((prevPlayers) =>
+                prevPlayers.map((player) => (player.id === updatedData.id ? updatedData : player)));
+        }
     };
 
     const deletePlayerHandler = async (id) => {
@@ -45,6 +51,7 @@ export const PlayerProvider = ({ children }) => {
     const fetchPlayerByIdHandler = async (id) => {
         const player = await fetchPlayerById(id);
         setSelectedPlayer(player);
+        return selectedPlayer;
     };
 
     return (

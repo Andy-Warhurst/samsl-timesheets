@@ -1,23 +1,27 @@
 import "./Selector.css"
-import React from "react";
+import React, {useEffect, useState} from "react";
 import FormControl from "react-bootstrap/FormControl";
-//import UserContext from "./UserContext";
 import {useData} from "./DataContext";
-
-import PLAYERS from "./Players.json";
-
-//const Rounds = [1,2,3,4,5,6,7,8];
+import {usePlayers} from "./PlayerContext";
 
 const Selector = (props) => {
 
-    const allPlayers = PLAYERS;
+    const { data, updateUserField } = useData();
+    const {players, updatePlayer} = usePlayers(); // , , fetchAllPlayers
+    const [myPlayers, setMyPlayers] = useState(players);
 
-    const players = allPlayers.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
+    useEffect(() => {
 
-  //const { data, updateUserField } = useContext(UserContext);
-  const { data, updateUserField } = useData();
+        function extractPlayersByTeam(plr) {
+            return plr.team === props.team;
+        }
 
-  //console.log(fixtures);
+        setMyPlayers(players.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name));
+    }, [players, props.team]);
+
+    //const players = allPlayers.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name);
+
+
 
   function updateSelected (selection) {
 
@@ -36,7 +40,7 @@ const Selector = (props) => {
 
   function updateShirtNumber(player, number) {
     player.shirtno = number;
-
+    updatePlayer (player);
   }
 
 
@@ -52,7 +56,7 @@ const Selector = (props) => {
           <th>Name</th>
           <th>Shirt</th>
         </tr>
-        {players.map(p => (
+        {myPlayers.map(p => (
             <tr key={p.id}>
                 <td>
                     <input
@@ -70,6 +74,7 @@ const Selector = (props) => {
                         id={"shirtnumber".concat(p.id)}
                         name={"shirtnumber".concat(p.id)}
                         type="text"
+                        value={p.shirtno}
                         onChange={(e) => updateShirtNumber(p, e.target.value)}
                     />
                 </td>
@@ -82,9 +87,6 @@ const Selector = (props) => {
 
 );
 
-    function extractPlayersByTeam(plr) {
-        return plr.team === props.team;
-    }
 };
 
 export default Selector;
