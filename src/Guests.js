@@ -33,10 +33,10 @@ function Guests() {
     },[updateGuest]);  //
 
     const nextId = useCallback(() => {
-        const ids = myGuests.map(item => item.id);
+        const ids = guests.map(item => item.id);
         const maxId = ids.length > 0 ? Math.max(...ids) : 0;
         return (maxId + 1).toString();
-    }, [myGuests]);
+    }, [guests]);
 
     const deleteGuestById = useCallback(async (id) => {
         await deleteGuest(id);
