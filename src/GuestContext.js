@@ -15,6 +15,7 @@ export const useGuests = () => {
 
 export const GuestProvider = ({ children }) => {
     const [guests, setGuests] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [selectedGuest, setSelectedGuest] = useState(null);
 
     console.log(selectedGuest);
@@ -23,6 +24,7 @@ export const GuestProvider = ({ children }) => {
         const fetchData = async () => {
             const result = await fetchAllGuests();
             setGuests(result);
+            setLoading(false);
         };
         fetchData();
     }, []);
@@ -57,6 +59,7 @@ export const GuestProvider = ({ children }) => {
     return (
         <GuestContext.Provider value={{
             guests,
+            loading,
             fetchGuestByID: fetchGuestByIdHandler,
             addGuest: addGuestHandler,
             updateGuest: updateGuestHandler,

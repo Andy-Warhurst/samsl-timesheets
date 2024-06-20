@@ -1,14 +1,46 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {PDFDocument, rgb} from 'pdf-lib';
 
 // Import the image
 import sampleImage from './assets/SAMSL-logo.png';
 import {useData} from "./DataContext";
+import {extractFixturesByRound} from "./Fixtures";
+import {useFixtures} from "./FixtureContext";
 
-const CreateAndPrintPDF = () => {
+const PrintTeamsheet = () => {
 
-    const {data} = useData();
+    function convertTime(timeStr) {
+        // Split the input string into hours and minutes parts
+        const [hoursPart, minutesPart] = timeStr.split('.');
+
+        // Convert the parts to integers
+        const hours = parseInt(hoursPart, 10);
+        let minutes = 0;
+
+        if (minutesPart) {
+            minutes = parseInt(minutesPart, 10) * (minutesPart.length === 1 ? 10 : 1);
+        }
+
+        return `${hours}:${minutes.toString().padStart(2, '0')}`;
+    }
+
+    const {data, loading, updateUserField} = useData();
+    const {fixtures } = useFixtures();
+
+    let theRound = data.round;
     let availablePlayers = data.selectedPlayers;
+
+    useEffect(() => {
+        const theFixture = fixtures.filter(extractFixturesByRound(data.round, data.theTeamName));
+
+        if (theFixture.length > 0) {
+            updateUserField('homeTeamName', theFixture[0].hometeam);
+            updateUserField('awayTeamName', theFixture[0].awayteam);
+            updateUserField('venue', theFixture[0].venue);
+            updateUserField('dateAndTime', theFixture[0].date + " " + convertTime(theFixture[0].time));
+        }
+    }, [ data.round, data.theTeamName, fixtures, updateUserField]);
+
 
     const rowsToAdd = 24 - availablePlayers.length;
 
@@ -113,17 +145,6 @@ const CreateAndPrintPDF = () => {
             height: imageHeight,
         });
 
-        // Draw the fixture box.
-
-
-        // page.drawRectangle({
-        //     x:400,
-        //     y: 50,
-        //     height: 30,
-        //     width: 500,
-        //     borderColor: rgb(1, 1, 1),
-        //     fillColor: rgb(0, 0, 0)});
-
 
         const tableData = [
             ['Shirt', 'Name', 'Guest', 'Goals', 'Cards', 'Injuries', '3-2-1'],
@@ -165,7 +186,7 @@ const CreateAndPrintPDF = () => {
             size: 18,
         });
 
-        page.drawText("Round : " + data.round
+        page.drawText("Round : " + theRound
             + " \t Venue: " + data.venue
             + " \t Date/Time: " + data.dateAndTime, {
             x: 50,
@@ -173,33 +194,6 @@ const CreateAndPrintPDF = () => {
             size: 12,
         });
 
-        // page.drawRectangle({
-        //     x: 30,
-        //     y: 256 ,
-        //     width: 540,
-        //     height: 16,
-        //     borderColor: rgb(0, 0, 0),
-        //     borderWidth: 1,
-        // });
-        //
-        // page.drawRectangle({
-        //     x: 30,
-        //     y: 240 ,
-        //     width: 540,
-        //     height: 48,
-        //     borderColor: rgb(0, 0, 0),
-        //     borderWidth: 1,
-        // });
-
-
-        // page.drawRectangle({
-        //     x: 30,
-        //     y: 140 ,
-        //     width: 540,
-        //     height: 50,
-        //     borderColor: rgb(0, 0, 0),
-        //     borderWidth: 1,
-        // });
 
         page.drawRectangle({
             x: 37,
@@ -271,22 +265,6 @@ const CreateAndPrintPDF = () => {
             size: 14,
         });
 
-
-        // page.drawText('Shirt     Player Name                          Guest   Goals   Cards   Injuries              3-2-1', {
-        //     x: 50,
-        //     y: 680,
-        //     size: 12,
-        // });
-
-        //${index + 1}.
-        // availablePlayers.forEach((player, index) => {
-        //     page.drawText(`${player.name}`, {
-        //         x: 90,
-        //         y: 660 - index * 16,
-        //         size: 12,
-        //     });
-        // });
-
         const pdfBytes = await pdfDoc.save();
 
         // Convert the PDF to Blob
@@ -304,11 +282,17 @@ const CreateAndPrintPDF = () => {
         }
     };
 
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div>
             <button onClick={createPdf}>Print Teamsheet</button>
         </div>
     );
-};
 
-export default CreateAndPrintPDF;
+}
+
+export default PrintTeamsheet;

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
     fetchAllUserTeams,
 } from './DataService';
+import Round from "./Round";
 
 const DataContext = createContext();
 
@@ -12,8 +13,7 @@ export const useData = () => {
 export const DataProvider = ({ children }) => {
     //const [data, setData] = useState([]);
 
-    const [isLoaded, setIsLoaded] = useState(false);
-
+    //const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({
         userTeams: [],
         selectedPlayers: [],
@@ -24,6 +24,7 @@ export const DataProvider = ({ children }) => {
         venue : "Unknown",
         round : "Unknown",
     });
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,9 +37,9 @@ export const DataProvider = ({ children }) => {
                 awayTeamName : "Away Team",
                 dateAndTime : "KO Time",
                 venue : "Place and Pitch",
-                round : "8",
+                round : Round(),
             });
-            setIsLoaded(true);
+            setLoading(false);
         };
         fetchData();
     }, []);
@@ -50,7 +51,6 @@ export const DataProvider = ({ children }) => {
             [field]: value
         }));
     };
-
 
     const getTeamForUser = (theUserEmail) => {
         for (let item of data.userTeams) {
@@ -79,7 +79,8 @@ export const DataProvider = ({ children }) => {
 
     return (
         <DataContext.Provider value={{
-            isLoaded,
+            //isLoaded,
+            loading,
             data,
             getTeamForUser,
             getTeamsForUser,

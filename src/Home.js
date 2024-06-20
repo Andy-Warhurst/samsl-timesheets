@@ -2,21 +2,34 @@ import {useAuth0} from "@auth0/auth0-react";
 import * as React from "react";
 import MyTeam from "./MyTeam";
 import Round from "./Round";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 import { extractFixturesByTeam} from "./Fixtures";
 import {useFixtures} from "./FixtureContext";
 import {useData} from "./DataContext";
 import TeamsDropdown from "./TeamsDropdown";
 import FixtureDropdown from "./FixtureDropdown";
 import rego from "./assets/SAMSL_Register.png";
+import {useGuests} from "./GuestContext";
+import {usePlayers} from "./PlayerContext";
 
 function Home() {
     const { isAuthenticated,user } = useAuth0();
-    const { getTeamsForUser } = useData(); // getTeamForUser, , updateUserField data,
-    const { fixtures } = useFixtures();
+    const { getTeamsForUser, loading: dataLoading } = useData(); // getTeamForUser, , updateUserField data,
+    const { fixtures, loading: fixturesLoading } = useFixtures();
+    const {loading: guestsLoading } = useGuests();
+    const {loading: playersLoading } = usePlayers();
     let myFixtures = [];
     let myTeam ="";
     let myTeams = [];
+
+    const [allDataLoaded, setAllDataLoaded] = useState(false);
+
+    useEffect(() => {
+        // Check if all contexts are done loading
+        if (!fixturesLoading && !dataLoading && !guestsLoading && !playersLoading) {
+            setAllDataLoaded(true);
+        }
+    }, [ fixturesLoading, dataLoading, guestsLoading, playersLoading]);
 
     function isMoreThanOne() {
         return (myTeams.length > 1);
@@ -30,9 +43,10 @@ function Home() {
     const {  round,  selected} = state;
 
 
+    if (!allDataLoaded) {
+        return <div>Loading...</div>;
+    }
     if (isAuthenticated) {
-
-        //myTeam = getTeamForUser(user.email);
 
         myTeams = getTeamsForUser(user.email);
         if (myTeams.length > 0) {
@@ -41,14 +55,6 @@ function Home() {
 
         myFixtures = fixtures.filter(extractFixturesByTeam(myTeam));
 
-        // const theFixture = fixtures.filter(extractFixturesByRound(round));
-        //
-        // if (theFixture.length > 0) {
-        //     updateUserField('homeTeamName', theFixture[0].hometeam);
-        //     updateUserField('awayTeamName', theFixture[0].awayteam);
-        //     updateUserField('venue', theFixture[0].venue);
-        //     updateUserField('dateAndTime', theFixture[0].date + " " + theFixture[0].time);
-        // }
     }
     return (
         <div>

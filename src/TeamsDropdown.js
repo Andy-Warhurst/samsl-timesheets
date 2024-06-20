@@ -11,7 +11,6 @@ const TeamsDropdown = ({ teams }) => {
 
     if (!initialised)  {
         updateUserField('theTeamName', teams[0]);
-        updateUserField('round', '8');
         setInitialised(true);
     }
 

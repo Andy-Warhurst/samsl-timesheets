@@ -16,6 +16,7 @@ export const usePlayers = () => {
 export const PlayerProvider = ({ children }) => {
 
     const [players, setPlayers] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [selectedPlayer, setSelectedPlayer] = useState("");
 
     //console.log(selectedPlayer);
@@ -24,6 +25,7 @@ export const PlayerProvider = ({ children }) => {
         const fetchData = async () => {
             const result = await fetchAllPlayers();
             setPlayers(result);
+            setLoading(false);
         };
         fetchData();
     }, []);
@@ -57,6 +59,7 @@ export const PlayerProvider = ({ children }) => {
     return (
         <PlayerContext.Provider value={{
             players,
+            loading,
             fetchPlayerByID: fetchPlayerByIdHandler,
             addPlayer: addPlayerHandler,
             updatePlayer: updatePlayerHandler,

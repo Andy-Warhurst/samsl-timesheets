@@ -17,10 +17,15 @@ export const FixtureProvider = ({ children }) => {
     const [fixtures, setFixtures] = useState([]);
     //const [selectedFixture, setSelectedFixture] = useState(null);
 
+
+
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetchAllFixtures();
             setFixtures(result);
+            setLoading(false);
         };
         fetchData();
     }, []);
@@ -47,6 +52,7 @@ export const FixtureProvider = ({ children }) => {
 
     return (
         <FixtureContext.Provider value={{ fixtures,
+            loading,
             // fetchFixtureByID: fetchFixtureByIdHandler,
             addFixture: addFixtureHandler,
             updateFixture: updateFixtureHandler,
