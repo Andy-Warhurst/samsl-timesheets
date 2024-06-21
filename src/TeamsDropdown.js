@@ -4,15 +4,15 @@ import {useData} from "./DataContext";
 const TeamsDropdown = ({ teams }) => {
 
     const [initialised, setInitialised] = useState(false);
-
     const [team, setTeam] = useState("");
-
     const { data, updateUserField } = useData();
 
-    if (!initialised)  {
-        updateUserField('theTeamName', teams[0]);
-        setInitialised(true);
-    }
+    useEffect(() => {
+        if (!initialised && teams.length > 0) {
+            updateUserField('theTeamName', teams[0]);
+            setInitialised(true);
+        }
+    }, [initialised, teams, updateUserField]);
 
     useEffect(() => {
         if (data.theTeamName) {
@@ -20,10 +20,8 @@ const TeamsDropdown = ({ teams }) => {
         }
     }, [data.theTeamName]);
 
-    function updateTeam (selection) {
-
+    function updateTeam(selection) {
         if (selection !== team) {
-            //setTeam(selection);
             updateUserField('theTeamName', selection);
         }
     }
@@ -38,7 +36,7 @@ const TeamsDropdown = ({ teams }) => {
                     value={team}
                     // aria-describedby="basic-addon2"
                     style={{fontSize: 28}}
-                    placeholder="Team"
+                    //placeholder="Team"
                     onChange={(e) =>
                         updateTeam (e.target.value)
                     }

@@ -19,8 +19,6 @@ export const PlayerProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [selectedPlayer, setSelectedPlayer] = useState("");
 
-    //console.log(selectedPlayer);
-
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetchAllPlayers();

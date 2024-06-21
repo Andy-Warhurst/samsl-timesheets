@@ -17,12 +17,12 @@ function Players() {
                 const response =
                     await axios.put(`https://hja6wvb9hc.execute-api.us-west-1.amazonaws.com/players`,
                         {id,name,team });
-                console.log(response.data);
+                console.lg(response.data.toString());
             } catch (error) {
                 console.error(error);
             }
-        };
-    };
+        }
+    }
 
 
     return (
