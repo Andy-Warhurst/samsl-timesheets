@@ -8,7 +8,7 @@ function About() {
         <div>
             <h1>About Page</h1>
             <p>
-                Version: 0.11
+                Version: 1.0
             </p>
             <p>
                 Date: 21 June 2024

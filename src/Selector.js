@@ -4,7 +4,7 @@ import FormControl from "react-bootstrap/FormControl";
 import {useData} from "./DataContext";
 import {usePlayers} from "./PlayerContext";
 
-const Selector = (props) => {
+const Selector = () => {
 
     const { data, updateUserField } = useData();
     const {players, updatePlayer} = usePlayers();
@@ -13,11 +13,11 @@ const Selector = (props) => {
     useEffect(() => {
 
         function extractPlayersByTeam(plr) {
-            return plr.team === props.team;
+            return plr.team === data.theTeamName;
         }
 
         setMyPlayers(players.filter(extractPlayersByTeam).sort((a, b) => a.name > b.name));
-    }, [players, props.team]);
+    }, [players, data.theTeamName]);
 
     const updateSelected = useCallback((selection) => {
         const updatedSelections = data.selectedPlayers.includes(selection)
