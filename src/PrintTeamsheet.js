@@ -1,7 +1,5 @@
 import React, {useEffect, useCallback} from 'react';
 import {PDFDocument, rgb} from 'pdf-lib';
-
-// Import the image
 import sampleImage from './assets/SAMSL-logo.png';
 import {useData} from "./DataContext";
 import {extractFixturesByRound} from "./Fixtures";
@@ -59,18 +57,6 @@ const PrintTeamsheet = () => {
     useEffect(() => {
         updateFields();
     }, [updateFields]);
-
-    // useEffect(() => {
-    //     const theFixture = fixtures.filter(extractFixturesByRound(data.round, data.theTeamName));
-    //
-    //     if (theFixture.length > 0) {
-    //         updateUserField('homeTeamName', theFixture[0].hometeam);
-    //         updateUserField('awayTeamName', theFixture[0].awayteam);
-    //         updateUserField('venue', theFixture[0].venue);
-    //         updateUserField('dateAndTime', theFixture[0].date + " " + convertTime(theFixture[0].time));
-    //     }
-    // }, [ data.round, data.theTeamName, fixtures, updateUserField]);
-
 
     const rowsToAdd = 24 - availablePlayers.length;
 

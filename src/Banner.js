@@ -14,7 +14,6 @@ const MyTeam = () => {
             )}
             {isAuthenticated && (
                 <>
-
                     <h3  style={{padding: '1px', margin: '2px' }}>SAMSL Manager 2024</h3>
                     <h5  style={{padding: '1px', margin: '2px' }}>{user.name}</h5>
                 </>

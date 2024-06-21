@@ -14,7 +14,7 @@ import {usePlayers} from "./PlayerContext";
 
 function Home() {
     const { isAuthenticated,user } = useAuth0();
-    const { getTeamsForUser, loading: dataLoading } = useData(); // getTeamForUser, , updateUserField data,
+    const { getTeamsForUser, loading: dataLoading } = useData();
     const { fixtures, loading: fixturesLoading } = useFixtures();
     const {loading: guestsLoading } = useGuests();
     const {loading: playersLoading } = usePlayers();

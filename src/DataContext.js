@@ -11,9 +11,7 @@ export const useData = () => {
 };
 
 export const DataProvider = ({ children }) => {
-    //const [data, setData] = useState([]);
 
-    //const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({
         userTeams: [],
         selectedPlayers: [],
@@ -69,17 +67,11 @@ export const DataProvider = ({ children }) => {
                 teams.push(item.team);
             }
         }
-
-        // if (teams.length > 0) {
-        //     data.theTeamName = teams[teams.length - 1]; // Set the last matching team name
-        // }
-
         return teams;
     }
 
     return (
         <DataContext.Provider value={{
-            //isLoaded,
             loading,
             data,
             getTeamForUser,

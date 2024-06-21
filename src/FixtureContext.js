@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
     fetchAllFixtures,
-    // fetchFixtureById,
     addFixture,
     updateFixture,
     deleteFixture
@@ -15,10 +14,6 @@ export const useFixtures = () => {
 
 export const FixtureProvider = ({ children }) => {
     const [fixtures, setFixtures] = useState([]);
-    //const [selectedFixture, setSelectedFixture] = useState(null);
-
-
-
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -45,15 +40,9 @@ export const FixtureProvider = ({ children }) => {
         setFixtures((prevFixtures) => prevFixtures.filter((Fixture) => Fixture.id !== id));
     };
 
-    // const fetchFixtureByIdHandler = async (id) => {
-    //     const Fixture = await fetchFixtureById(id);
-    //     //setSelectedFixture(Fixture);
-    // };
-
     return (
         <FixtureContext.Provider value={{ fixtures,
             loading,
-            // fetchFixtureByID: fetchFixtureByIdHandler,
             addFixture: addFixtureHandler,
             updateFixture: updateFixtureHandler,
             deleteFixture: deleteFixtureHandler }}>

@@ -7,7 +7,7 @@ import {usePlayers} from "./PlayerContext";
 const Selector = (props) => {
 
     const { data, updateUserField } = useData();
-    const {players, updatePlayer} = usePlayers(); // , , fetchAllPlayers
+    const {players, updatePlayer} = usePlayers();
     const [myPlayers, setMyPlayers] = useState(players);
 
     useEffect(() => {

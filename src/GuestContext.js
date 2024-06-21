@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
     fetchAllGuests,
-    //fetchGuestById,
     addGuest,
     updateGuest,
     deleteGuest
@@ -16,7 +15,6 @@ export const useGuests = () => {
 export const GuestProvider = ({ children }) => {
     const [guests, setGuests] = useState([]);
     const [loading, setLoading] = useState(true);
-    //const [selectedGuest, setSelectedGuest] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -49,16 +47,10 @@ export const GuestProvider = ({ children }) => {
         setGuests((prevGuests) => prevGuests.filter((guest) => guest.id !== id));
     };
 
-    // const fetchGuestByIdHandler = async (id) => {
-    //     const guest = await fetchGuestById(id);
-    //     setSelectedGuest(guest);
-    // };
-
     return (
         <GuestContext.Provider value={{
             guests,
             loading,
-            //fetchGuestByID: fetchGuestByIdHandler,
             addGuest: addGuestHandler,
             updateGuest: updateGuestHandler,
             deleteGuest: deleteGuestHandler }}>

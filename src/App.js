@@ -8,7 +8,6 @@ import ErrorPage from './ErrorPage';
 import Guests from "./Guests";
 import AuthenticationGuard from './authentication-guard';
 import PrintTeamsheet from "./PrintTeamsheet";
-import Players from "./players";
 import { DataProvider } from './DataContext';
 import {GuestProvider} from "./GuestContext";
 import {FixtureProvider} from "./FixtureContext";
@@ -40,7 +39,6 @@ function App() {
                                                 <Route path="/about" element={<About />} />
                                                 <Route path="/guests" element={<Guests />} />
                                                 <Route path="/print" element={<PrintTeamsheet />} />
-                                                <Route path="/loadPlayers" element={<Players />} />
                                                 <Route
                                                     path="/services"
                                                     element={<AuthenticationGuard component={Services} />}

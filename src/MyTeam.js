@@ -18,10 +18,6 @@ function MyTeam( {round, selected, fixtures}) {
     return (
 
         <div>
-            {/*<div>*/}
-            {/*    <FixtureDropdown fixtures={fixtures} />*/}
-            {/*</div>*/}
-            {/*<h1>{data.theTeamName}</h1>*/}
             <Container>
                 <Row>
                     <Col>

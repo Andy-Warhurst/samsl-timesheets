@@ -17,8 +17,6 @@ function Guests() {
         setMyGuests(guests.filter(guest => guest.team === data.theTeamName).sort((a, b) => a.name.localeCompare(b.name)));
     }, [guests, data.theTeamName]);
 
-    // myGuests.filter(guest => guest.team === team)
-
     const updateSelected = useCallback((selection) => {
         const updatedSelections = data.selectedPlayers.includes(selection)
             ? data.selectedPlayers.filter(player => player !== selection)
@@ -48,7 +46,6 @@ function Guests() {
             const newGuest = { id: theId, name, team, shirtno };
             setMyGuests(prevGuests => [...prevGuests, newGuest]);
             await addGuest(newGuest);
-            //setGuestText(''); // Clear the input field after adding a guest
         } catch (error) {
             console.error(error);
         }
@@ -72,8 +69,7 @@ function Guests() {
                                 <th>Shirt</th>
                             </tr>
                             {myGuests.map(p => (
-                                // {myGuests.filter(guest => guest.team === team).sort((a, b) => a.name.localeCompare(b.name)).map(p => (
-                                        <tr key={p.id}>
+                                <tr key={p.id}>
                                     <td>
                                         <input
                                             className="guest-checkbox"
