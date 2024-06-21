@@ -22,7 +22,6 @@ const FixtureDropdown = () => {
                     id="round"
                     value={round}
                     style={{fontSize: 28}}
-                    placeholder="Round"
                     onChange={(e) => updateRound (e.target.value)
                     }
                 >
