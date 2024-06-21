@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {PDFDocument, rgb} from 'pdf-lib';
 
 // Import the image
@@ -24,22 +24,52 @@ const PrintTeamsheet = () => {
         return `${hours}:${minutes.toString().padStart(2, '0')}`;
     }
 
-    const {data, loading, updateUserField} = useData();
+    const {data, updateUserField} = useData();
     const {fixtures } = useFixtures();
 
     let theRound = data.round;
     let availablePlayers = data.selectedPlayers;
 
-    useEffect(() => {
+
+    const updateFields = useCallback(() => {
         const theFixture = fixtures.filter(extractFixturesByRound(data.round, data.theTeamName));
 
         if (theFixture.length > 0) {
-            updateUserField('homeTeamName', theFixture[0].hometeam);
-            updateUserField('awayTeamName', theFixture[0].awayteam);
-            updateUserField('venue', theFixture[0].venue);
-            updateUserField('dateAndTime', theFixture[0].date + " " + convertTime(theFixture[0].time));
+            const newFields = {
+                homeTeamName: theFixture[0].hometeam,
+                awayTeamName: theFixture[0].awayteam,
+                venue: theFixture[0].venue,
+                dateAndTime: theFixture[0].date + " " + convertTime(theFixture[0].time),
+            };
+
+            if (
+                data.homeTeamName !== newFields.homeTeamName ||
+                data.awayTeamName !== newFields.awayTeamName ||
+                data.venue !== newFields.venue ||
+                data.dateAndTime !== newFields.dateAndTime
+            ) {
+                updateUserField('homeTeamName', newFields.homeTeamName);
+                updateUserField('awayTeamName', newFields.awayTeamName);
+                updateUserField('venue', newFields.venue);
+                updateUserField('dateAndTime', newFields.dateAndTime);
+            }
         }
-    }, [ data.round, data.theTeamName, fixtures, updateUserField]);
+    }, [data, fixtures, updateUserField]);
+
+    useEffect(() => {
+        updateFields();
+    }, [updateFields]);
+
+    // useEffect(() => {
+    //     const theFixture = fixtures.filter(extractFixturesByRound(data.round, data.theTeamName));
+    //
+    //     if (theFixture.length > 0) {
+    //         updateUserField('homeTeamName', theFixture[0].hometeam);
+    //         updateUserField('awayTeamName', theFixture[0].awayteam);
+    //         updateUserField('venue', theFixture[0].venue);
+    //         updateUserField('dateAndTime', theFixture[0].date + " " + convertTime(theFixture[0].time));
+    //     }
+    // }, [ data.round, data.theTeamName, fixtures, updateUserField]);
 
 
     const rowsToAdd = 24 - availablePlayers.length;
@@ -281,11 +311,6 @@ const PrintTeamsheet = () => {
             };
         }
     };
-
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div>

@@ -7,7 +7,6 @@ import { useData } from "./DataContext";
 import { useGuests } from './GuestContext';
 
 function Guests() {
-    console.log("Guests Component");
 
     const { guests, deleteGuest, addGuest, updateGuest } = useGuests();
     const [myGuests, setMyGuests] = useState([]);
