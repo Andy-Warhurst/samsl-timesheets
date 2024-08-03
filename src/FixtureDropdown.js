@@ -6,7 +6,7 @@ const FixtureDropdown = () => {
     const { data, updateUserField } = useData();
     const [round, setRound] = useState(data.round);
 
-    const Rounds = ['9','10','CUP1','11','12','13','14','15','16','17','18'];
+    const Rounds = ['9','10','CUP1','11','12','13','14','15','CUP2', '16','17','18'];
 
     function updateRound (selection) {
         setRound(selection);

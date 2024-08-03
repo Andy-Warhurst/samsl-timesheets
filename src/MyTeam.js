@@ -30,6 +30,7 @@ function MyTeam() {
             </Container>
         </div>
     );
+
 }
 
 export default MyTeam;
