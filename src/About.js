@@ -8,10 +8,10 @@ function About() {
         <div>
             <h1>About Page</h1>
             <p>
-                Version: 1.01
+                Version: 1.02
             </p>
             <p>
-                Date: 5 July 2024
+                Date: 7 Spetember 2024
             </p>
             <Link to="/">Home</Link>
         </div>
