@@ -9,7 +9,7 @@ const MyTeam = () => {
         <div>
             {!isAuthenticated && (
                 <>
-                    <h2 style={{padding: '1px', margin: '2px' }} >SAMSL Manager 2024</h2>
+                    <h2 style={{padding: '1px', margin: '2px' }} >SAMSL Manager 2025</h2>
                 </>
             )}
             {isAuthenticated && (

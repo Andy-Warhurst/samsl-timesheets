@@ -47,11 +47,9 @@ function Home() {
             {!isAuthenticated && (
                 <>
 
-                    <h1>Welcome</h1>
+                    <h1>Welcome to the SAMSL Team Manager App.</h1>
 
-                    <p>This is the new application to help you manage your team(S).</p>
-
-                    <p>From June 2024 you will need to login to use this App. </p>
+                    <p>You need to login to use this App, so if you don't already have a login follow these instructions.</p>
 
 
                     <img src={rego} className="rego-image" alt="Registration Instructions"/>
