@@ -10,6 +10,7 @@ const PrintTeamsheet = () => {
     function convertTime(timeStr) {
         // Split the input string into hours and minutes parts
         const [hoursPart, minutesPart] = timeStr.split('.');
+        //const [hoursPart, minutesPart] = [9,30]
 
         // Convert the parts to integers
         const hours = parseInt(hoursPart, 10);
@@ -37,7 +38,7 @@ const PrintTeamsheet = () => {
                 homeTeamName: theFixture[0].hometeam,
                 awayTeamName: theFixture[0].awayteam,
                 venue: theFixture[0].venue,
-                dateAndTime: theFixture[0].date + " " + convertTime(theFixture[0].time),
+                dateAndTime: theFixture[0].date + " " + convertTime(theFixture[0].time.toString()),
             };
 
             if (
