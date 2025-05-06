@@ -301,7 +301,7 @@ const PrintTeamsheet = () => {
 
     return (
         <div>
-            <button onClick={createPdf}>Print Teamsheet</button>
+            <button onPointerDown={createPdf} onClick={createPdf}>Print Teamsheet</button>
         </div>
     );
 
