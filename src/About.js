@@ -8,7 +8,7 @@ function About() {
         <div>
             <h1>About Page</h1>
             <p>
-                Version: 1.06 - Mobile Device Modifications (2)
+                Version: 1.07 - Mobile Device Modifications (3)
             </p>
             <p>
                 Date: 7 May 2025
