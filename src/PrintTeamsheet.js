@@ -5,6 +5,7 @@ import {useData} from "./DataContext";
 import {extractFixturesByRound} from "./Fixtures";
 import {useFixtures} from "./FixtureContext";
 import './Styles.css';
+import Button from "react-bootstrap/Button";
 
 const PrintTeamsheet = () => {
 
@@ -304,7 +305,7 @@ const PrintTeamsheet = () => {
 
     return (
         <div>
-            <button onPointerDown={createPdf} >Print Teamsheet</button>
+            <Button onPointerDown={createPdf} >Print Teamsheet</Button>
         </div>
     );
 
