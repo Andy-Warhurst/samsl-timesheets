@@ -4,6 +4,7 @@ import sampleImage from './assets/SAMSL-logo.png';
 import {useData} from "./DataContext";
 import {extractFixturesByRound} from "./Fixtures";
 import {useFixtures} from "./FixtureContext";
+import './Styles.css';
 
 const PrintTeamsheet = () => {
 
@@ -302,7 +303,6 @@ const PrintTeamsheet = () => {
     return (
         <div>
             <button onPointerDown={createPdf} >Print Teamsheet</button>
-            {/*<button onClick={createPdf}>Print Teamsheet</button>*/}
         </div>
     );
 

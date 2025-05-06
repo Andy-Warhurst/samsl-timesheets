@@ -22,12 +22,14 @@ function MyTeam() {
                     </Col>
                     <Col>
                         <h3>Guests</h3>
-                        <Guests />
+                        <Guests/>
                         <hr/>
-                        <PrintTeamsheet />
+                        <PrintTeamsheet/>
+                        <br/>
+                        <br/>
                     </Col>
                     <Col>
-                        <hr/>
+                    <hr/>
                     </Col>
                 </Row>
             </Container>
