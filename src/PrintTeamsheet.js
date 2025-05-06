@@ -91,7 +91,9 @@ const PrintTeamsheet = () => {
         return a.name.localeCompare(b.name);
     });
 
-    const createPdf = async () => {
+    const createPdf = async (event) => {
+
+        event.preventDefault()
 
         const drawTable = (data, x, y, rowHeight, columnWidths) => {
             // const numRows = data.length + 1;
