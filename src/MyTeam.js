@@ -26,6 +26,9 @@ function MyTeam() {
                         <hr/>
                         <PrintTeamsheet />
                     </Col>
+                    <Col>
+                        <hr/>
+                    </Col>
                 </Row>
             </Container>
         </div>
