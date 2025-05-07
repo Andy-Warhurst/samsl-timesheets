@@ -29,11 +29,11 @@ function Guests() {
         updateGuest({ ...guest, shirtno: number });
     },[updateGuest]);  //
 
-    const nextId = useCallback(() => {
-        const ids = guests.map(item => item.id);
-        const maxId = ids.length > 0 ? Math.max(...ids) : 0;
-        return (maxId + 1).toString();
-    }, [guests]);
+    // const nextId = useCallback(() => {
+    //     const ids = guests.map(item => item.id);
+    //     const maxId = ids.length > 0 ? Math.max(...ids) : 0;
+    //     return (maxId + 1).toString();
+    // }, [guests]);
 
     const deleteGuestById = useCallback(async (id) => {
         await deleteGuest(id);
@@ -42,14 +42,15 @@ function Guests() {
 
     const addNewGuest = useCallback(async (name, team, shirtno) => {
         try {
-            const theId = nextId();
+            // const theId = nextId();
+            const theId = crypto.randomUUID().toString();
             const newGuest = { id: theId, name, team, shirtno };
             setMyGuests(prevGuests => [...prevGuests, newGuest]);
             await addGuest(newGuest);
         } catch (error) {
             console.error(error);
         }
-    }, [addGuest, nextId]);
+    }, [addGuest]);
 
 
     return (
