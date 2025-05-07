@@ -81,7 +81,7 @@ function Guests() {
                                         />
                                     </td>
                                     <td className="guest-name" align='left' id={"gname" + p.id}>{p.name}</td>
-                                    <td width='50'>
+                                    <td>
                                         <FormControl
                                             className="guest-shirt"
                                             id={"gshirtnumber" + p.id}
