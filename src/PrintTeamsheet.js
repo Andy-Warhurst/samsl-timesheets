@@ -75,11 +75,14 @@ const PrintTeamsheet = () => {
     const createPdf = async (event) => {
         event.preventDefault();
 
-        const printWindow = window.open('', '_blank');
-        if (!printWindow) {
-            alert('Pop-up was blocked. Please enable pop-ups for this site.');
-            return;
+        let printWindow;
+        try {
+            printWindow = window.open('', '_blank');
+        } catch (err) {
+            console.warn('Pop-up blocked or failed:', err);
+            printWindow = null;
         }
+
 
         const pdfDoc = await PDFDocument.create();
         const page = pdfDoc.addPage([600, 800]);
@@ -169,10 +172,22 @@ const PrintTeamsheet = () => {
         const blob = new Blob([pdfBytes], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
 
-        printWindow.location.href = url;
-        printWindow.onload = () => {
-            printWindow.print();
-        };
+        if (printWindow) {
+            printWindow.location.href = url;
+            printWindow.onload = () => {
+                printWindow.print();
+            };
+        } else {
+            // Fallback: force download
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `teamsheet-${data.theTeamName.replace(/\s+/g, '-')}.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert('Pop-up was blocked. Your teamsheet has been downloaded instead.');
+        }
+
     };
 
     return (
