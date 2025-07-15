@@ -3,7 +3,7 @@ import './Styles.css';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Selector from "./Selector";
+// import Selector from "./Selector";
 import PrintTeamsheet from "./PrintTeamsheet";
 import Guests from "./Guests";
 
@@ -14,14 +14,14 @@ function MyTeam() {
         <div>
             <Container>
                 <Row>
+                    {/*<Col>*/}
+                    {/*    <h3>Players</h3>*/}
+                    {/*    <div style={{padding: 4}}>*/}
+                    {/*        <Selector />*/}
+                    {/*    </div>*/}
+                    {/*</Col>*/}
                     <Col>
                         <h3>Players</h3>
-                        <div style={{padding: 4}}>
-                            <Selector />
-                        </div>
-                    </Col>
-                    <Col>
-                        <h3>Guests</h3>
                         <Guests/>
                         <hr/>
                         <PrintTeamsheet/>

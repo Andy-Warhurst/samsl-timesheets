@@ -8,10 +8,10 @@ function About() {
         <div>
             <h1>About Page</h1>
             <p>
-                Version: 1.1.0 - Added Mobile Layouts
+                Version: 1.1.2 - Combined Players and Guests tabs
             </p>
             <p>
-                Date: 7 May 2025
+                Date: 16 July 2025
             </p>
             <Link to="/">Home</Link>
         </div>
