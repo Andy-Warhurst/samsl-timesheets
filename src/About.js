@@ -8,10 +8,10 @@ function About() {
         <div>
             <h1>About Page</h1>
             <p>
-                Version: 1.1.2 - Added rounds for cup and plate semi-finals
+                Version: 1.1.3 - Fixed Dependancies, and reduced vulnerabilities
             </p>
             <p>
-                Date: 15 September 2025
+                Date: 29 November 2025
             </p>
             <Link to="/">Home</Link>
         </div>
