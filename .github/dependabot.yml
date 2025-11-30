@@ -9,6 +9,6 @@ updates:
     directory: "/" # location of package.json
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 12
     commit-message:
       prefix: "fix"
