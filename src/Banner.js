@@ -9,12 +9,12 @@ const MyTeam = () => {
         <div>
             {!isAuthenticated && (
                 <>
-                    <h2 style={{padding: '1px', margin: '2px' }} >SAMSL Manager 2025</h2>
+                    <h2 style={{padding: '1px', margin: '2px' }} >SAMSL Manager 2026</h2>
                 </>
             )}
             {isAuthenticated && (
                 <>
-                    <h3  style={{padding: '1px', margin: '2px' }}>SAMSL Manager 2025</h3>
+                    <h3  style={{padding: '1px', margin: '2px' }}>SAMSL Manager 2026</h3>
                     <h5  style={{padding: '1px', margin: '2px' }}>{user.name}</h5>
                 </>
             )}

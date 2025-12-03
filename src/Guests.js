@@ -12,6 +12,7 @@ function Guests() {
     const { guests, deleteGuest, addGuest, updateGuest } = useGuests();
     const [myGuests, setMyGuests] = useState([]);
     const [guestText, setGuestText] = useState('');
+    const [columns, setColumns] = useState(5);
     const { data, updateUserField } = useData();
 
     useEffect(() => {
@@ -52,6 +53,23 @@ function Guests() {
     }, [addGuest]);
 
 
+    useEffect(() => {
+        const updateColumns = () => {
+            // tweak breakpoint as you like (e.g. 768, 576, etc.)
+            if (window.innerWidth < 768) {
+                setColumns(3);
+            } else {
+                setColumns(6);
+            }
+        };
+
+        updateColumns(); // run once on mount
+        window.addEventListener("resize", updateColumns);
+
+        return () => window.removeEventListener("resize", updateColumns);
+    }, []);
+
+
     return (
         <div className="guest-page">
             <table className="guest-selector-table">
@@ -61,7 +79,7 @@ function Guests() {
                     (_, rowIndex) => (
                         <tr key={rowIndex}>
                             {myGuests
-                                .slice(rowIndex * 5, rowIndex * 5 + 5)   // up to 5 guests per row
+                                .slice(rowIndex * columns, rowIndex * columns + columns)   // up to 5 guests per row
                                 .map(p => {
                                     const isSelected = data.selectedPlayers.some(sp => sp.id === p.id);
 
@@ -89,27 +107,27 @@ function Guests() {
                                                 </Button>
                                                 <div style={{ display: "flex", width: "100%", gap: "4px", marginTop: "4px" }}>
 
-                                                <FormControl
-                                                    className="guest-shirt"
-                                                    id={"gshirtnumber" + p.id}
-                                                    name={"gshirtnumber" + p.id}
-                                                    style={{ fontSize: "xx-small", marginBottom: 4 }}
-                                                    type="text"
-                                                    value={p.shirtno}
-                                                    onChange={(e) => updateShirtNumber(p, e.target.value)}
-                                                />
+                                                    <FormControl
+                                                        className="guest-shirt"
+                                                        id={"gshirtnumber" + p.id}
+                                                        name={"gshirtnumber" + p.id}
+                                                        style={{ fontSize: "xx-small", marginBottom: 4 }}
+                                                        type="text"
+                                                        value={p.shirtno}
+                                                        onChange={(e) => updateShirtNumber(p, e.target.value)}
+                                                    />
 
-                                                <Button
-                                                    variant="primary"
-                                                    id={"gdelete" + p.id}
-                                                    style={{ fontSize: "xx-small",
-                                                        margin: "1px",
-                                                        backgroundColor: "darkred"
-                                                    }}
-                                                    onClick={() => deleteGuestById(p.id)}
-                                                >
-                                                    X
-                                                </Button>
+                                                    <Button
+                                                        variant="primary"
+                                                        id={"gdelete" + p.id}
+                                                        style={{ fontSize: "xx-small",
+                                                            margin: "1px",
+                                                            backgroundColor: "darkred"
+                                                        }}
+                                                        onClick={() => deleteGuestById(p.id)}
+                                                    >
+                                                        X
+                                                    </Button>
                                                 </div>
                                             </Card>
                                         </td>
@@ -123,8 +141,8 @@ function Guests() {
 
             </table>
             <table>
-            <tbody>
-            <tr>
+                <tbody>
+                <tr>
                     <td style={{
                         width: "200px"}}>
                         <div>
