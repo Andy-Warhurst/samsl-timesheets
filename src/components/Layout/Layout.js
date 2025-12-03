@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../Header';
-import NavBar from '../../NavBar';
+// import NavBar from '../../NavBar';
 import './Layout.css';
 
 export default function Layout({ children }) {

@@ -6,7 +6,7 @@ import {useFixtures} from "./FixtureContext";
 import {useData} from "./DataContext";
 import TeamsDropdown from "./TeamsDropdown";
 import FixtureDropdown from "./FixtureDropdown";
-import rego from "./assets/SAMSL_Register.png";
+// import rego from "./assets/SAMSL_Register.png";
 import {useGuests} from "./GuestContext";
 import {usePlayers} from "./PlayerContext";
 
