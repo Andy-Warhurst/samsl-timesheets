@@ -23,10 +23,10 @@ jobs:
 #        uses: actions/setup-node@v3
 #        with:
 #          node-version: '22'
-      - name: set up Node.js 20
+      - name: set up Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - name: Install dependencies
         run: npm install
       - name: Build project
@@ -61,6 +61,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_RIVER_0C892FC00 }}
           action: "close"
           app_location: ''
+
 
 
 
