@@ -10,9 +10,9 @@ export default function Layout({ children }) {
                 <Header />
             </header>
 
-            <aside className="layout__sidebar">
-                <NavBar />
-            </aside>
+            {/*<aside className="layout__sidebar">*/}
+            {/*    <NavBar />*/}
+            {/*</aside>*/}
 
             <main className="layout__content">
                 {children}

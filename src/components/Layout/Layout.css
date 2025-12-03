@@ -8,8 +8,8 @@
     display: grid;
     grid-template-areas:
     "header"
-    "content"
-    "sidebar";
+    "content";
+    /*"sidebar";*/
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     gap: var(--gap);

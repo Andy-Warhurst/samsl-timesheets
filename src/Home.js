@@ -49,16 +49,17 @@ function Home() {
 
                     <h1>Welcome to the SAMSL Team Manager App.</h1>
 
-                    <p>You need to login to use this App, so if you don't already have a login follow these instructions.</p>
+                    <p>You need to login to use this App</p>
+                    {/*<p>, so if you don't already have a login follow these instructions.</p>*/}
 
 
-                    <img src={rego} className="rego-image" alt="Registration Instructions"/>
+                    {/*<img src={rego} className="rego-image" alt="Registration Instructions"/>*/}
                 </>
             )}
             {isAuthenticated && (
                 <>
 
-                    <div className="container">
+                    {/*<div className="container">*/}
                         <div className="component">
                             {isMoreThanOne ? (
                                 <TeamsDropdown teams={myTeams}/>
@@ -69,7 +70,7 @@ function Home() {
                         <div className="component">
                             <FixtureDropdown fixtures={fixtures} team={myTeam}/>
                         </div>
-                    </div>
+                    {/*</div>*/}
 
                     <MyTeam
                     />

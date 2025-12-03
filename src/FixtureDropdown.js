@@ -16,12 +16,12 @@ const FixtureDropdown = () => {
     return (
         <div>
             <label htmlFor="round"
-                   style={{fontSize: 28}}>
+                   style={{fontSize: "small"}}>
                 Round:
                 <select
                     id="round"
                     value={round}
-                    style={{fontSize: 28}}
+                    style={{fontSize: "small"}}
                     onChange={(e) => updateRound (e.target.value)
                     }
                 >

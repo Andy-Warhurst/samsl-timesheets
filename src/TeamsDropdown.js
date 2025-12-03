@@ -35,7 +35,7 @@ const TeamsDropdown = ({ teams }) => {
                     id="teams"
                     value={team}
                     // aria-describedby="basic-addon2"
-                    style={{fontSize: 28}}
+                    style={{fontSize: "small"}}
                     //placeholder="Team"
                     onChange={(e) =>
                         updateTeam (e.target.value)
