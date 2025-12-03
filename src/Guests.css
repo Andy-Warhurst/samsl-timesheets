@@ -21,8 +21,11 @@
 .guest-name {
     color: darkblue;
     min-width: 220px;
-    font-size: medium;
+    font-size: small;
+    border: 1px;
 }
 .guest-shirt {
-    width: 60px;
+    width: 40px;
+    font-size: small;
+    border: 1px;
 }

@@ -3,6 +3,7 @@ import "./Guests.css";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { useData } from "./DataContext";
 import { useGuests } from './GuestContext';
 
@@ -17,23 +18,21 @@ function Guests() {
         setMyGuests(guests.filter(guest => guest.team === data.theTeamName).sort((a, b) => a.name.localeCompare(b.name)));
     }, [guests, data.theTeamName]);
 
-    const updateSelected = useCallback((selection) => {
-        const updatedSelections = data.selectedPlayers.includes(selection)
-            ? data.selectedPlayers.filter(player => player !== selection)
-            : [...data.selectedPlayers, selection];
+    const updateSelected = useCallback((player) => {
+        const isAlreadySelected = data.selectedPlayers.some(p => p.id === player.id);
+
+        const updatedSelections = isAlreadySelected
+            ? data.selectedPlayers.filter(p => p.id !== player.id)
+            : [...data.selectedPlayers, player];
 
         updateUserField('selectedPlayers', updatedSelections);
     }, [data.selectedPlayers, updateUserField]);
+
 
     const updateShirtNumber = useCallback((guest, number) => {
         updateGuest({ ...guest, shirtno: number });
     },[updateGuest]);  //
 
-    // const nextId = useCallback(() => {
-    //     const ids = guests.map(item => item.id);
-    //     const maxId = ids.length > 0 ? Math.max(...ids) : 0;
-    //     return (maxId + 1).toString();
-    // }, [guests]);
 
     const deleteGuestById = useCallback(async (id) => {
         await deleteGuest(id);
@@ -55,61 +54,79 @@ function Guests() {
 
     return (
         <div className="guest-page">
-            <table>
+            <table className="guest-selector-table">
                 <tbody>
+                {Array.from(
+                    { length: Math.ceil(myGuests.length / 5) },  // number of rows
+                    (_, rowIndex) => (
+                        <tr key={rowIndex}>
+                            {myGuests
+                                .slice(rowIndex * 5, rowIndex * 5 + 5)   // up to 5 guests per row
+                                .map(p => {
+                                    const isSelected = data.selectedPlayers.some(sp => sp.id === p.id);
 
-                { (myGuests.length !== 0) ?
+                                    return (
+                                        <td key={p.id}>
+                                            <Card
+                                                style={{
+                                                    width: "100px",
+                                                    height: "100px",
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    justifyContent: "center",
+                                                    alignItems: "center",
+                                                    padding: 4,
+                                                    backgroundColor: "blue"
+                                                }}
+                                            >
+                                                <Button
+                                                    variant={isSelected ? "success" : "primary"}
+                                                    id={"gplaying" + p.id}
+                                                    style={{ fontSize: 12, marginBottom: 4 }}
+                                                    onClick={() => updateSelected(p)}
+                                                >
+                                                    {p.name}
+                                                </Button>
+                                                <div style={{ display: "flex", width: "100%", gap: "4px", marginTop: "4px" }}>
 
-                <tr>
-                    <td>
-                        <table className="guest-selector-table">
-                            <tbody>
-                            <tr>
-                                <th>Select</th>
-                                <th>Name</th>
-                                <th>Shirt</th>
-                            </tr>
-                            {myGuests.map(p => (
-                                <tr key={p.id}>
-                                    <td>
-                                        <input
-                                            className="guest-checkbox"
-                                            type="checkbox"
-                                            id={"gplaying" + p.id}
-                                            size="20"
-                                            onClick={() => updateSelected(p)}
-                                        />
-                                    </td>
-                                    <td className="guest-name" align='left' id={"gname" + p.id}>{p.name}</td>
-                                    <td>
-                                        <FormControl
-                                            className="guest-shirt"
-                                            id={"gshirtnumber" + p.id}
-                                            name={"gshirtnumber" + p.id}
-                                            type="text"
-                                            value={p.shirtno}
-                                            onChange={(e) => updateShirtNumber(p, e.target.value)}
-                                        />
-                                    </td>
-                                    <td>
-                                        <Button
-                                            variant="primary"
-                                            id={"gdelete" + p.id}
-                                            style={{ fontSize: 12 }}
-                                            onClick={() => deleteGuestById(p.id)}
-                                        >
-                                            X
-                                        </Button>
-                                    </td>
-                                </tr>
-                            ))}
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                    : <tr><td><h4>No Guests</h4></td></tr>}
-                <tr>
-                    <td>
+                                                <FormControl
+                                                    className="guest-shirt"
+                                                    id={"gshirtnumber" + p.id}
+                                                    name={"gshirtnumber" + p.id}
+                                                    style={{ fontSize: "xx-small", marginBottom: 4 }}
+                                                    type="text"
+                                                    value={p.shirtno}
+                                                    onChange={(e) => updateShirtNumber(p, e.target.value)}
+                                                />
+
+                                                <Button
+                                                    variant="primary"
+                                                    id={"gdelete" + p.id}
+                                                    style={{ fontSize: "xx-small",
+                                                        margin: "1px",
+                                                        backgroundColor: "darkred"
+                                                    }}
+                                                    onClick={() => deleteGuestById(p.id)}
+                                                >
+                                                    X
+                                                </Button>
+                                                </div>
+                                            </Card>
+                                        </td>
+                                    );
+                                })}
+                        </tr>
+                    )
+                ) }
+
+                </tbody>
+
+            </table>
+            <table>
+            <tbody>
+            <tr>
+                    <td style={{
+                        width: "200px"}}>
                         <div>
                             <label htmlFor="guestname">Name:</label>
                             <InputGroup>
@@ -118,15 +135,15 @@ function Guests() {
                                     aria-label="Guest's Name"
                                     aria-describedby="basic-addon2"
                                     id="guestname"
-                                    style={{ fontSize: 12 }}
+                                    style={{
+                                        fontSize: 12,
+                                        width: "100px"}}
                                     value={guestText}
-                                    onChange={(e) => setGuestText(e.target.value)}
-                                />
+                                    onChange={(e) => setGuestText(e.target.value)} />
                                 <Button
                                     variant="primary"
                                     style={{ fontSize: 12 }}
-                                    onClick={() => addNewGuest(guestText, data.theTeamName, '')}
-                                >
+                                    onClick={() => addNewGuest(guestText, data.theTeamName, '')} >
                                     Add
                                 </Button>
                             </InputGroup>
@@ -135,6 +152,7 @@ function Guests() {
                 </tr>
                 </tbody>
             </table>
+
         </div>
     );
 }
