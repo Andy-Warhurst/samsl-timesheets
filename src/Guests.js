@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useData } from "./DataContext";
 import { useGuests } from './GuestContext';
+import EditableNumberButton from "./EditableNumberButton";
 
 function Guests() {
 
@@ -31,9 +32,25 @@ function Guests() {
     }, [data.selectedPlayers, updateUserField]);
 
 
-    const updateShirtNumber = useCallback((guest, number) => {
-        updateGuest({ ...guest, shirtno: number });
-    },[updateGuest]);  //
+    // const updateShirtNumber = useCallback((guest, number) => {
+    //     updateGuest({ ...guest, shirtno: number });
+    // },[updateGuest]);  //
+
+    const updateShirtNumber = useCallback(
+        (guest, number) => {
+            // Optimistic local update
+            setMyGuests(prev =>
+                prev.map(g =>
+                    g.id === guest.id ? { ...g, shirtno: number } : g
+                )
+            );
+
+            // Persist in your backing store / context
+            updateGuest({ ...guest, shirtno: number });
+        },
+        [updateGuest]
+    );
+
 
 
     const deleteGuestById = useCallback(async (id) => {
@@ -87,53 +104,191 @@ function Guests() {
 
                                     return (
                                         <td key={p.id}>
+                                            {/*<Card*/}
+                                            {/*    style={{*/}
+                                            {/*        width: columnWidth,*/}
+                                            {/*        height: "100px",*/}
+                                            {/*        display: "flex",*/}
+                                            {/*        flexDirection: "column",*/}
+                                            {/*        // justifyContent: "center",*/}
+                                            {/*        alignItems: "center",*/}
+                                            {/*        padding: 4,*/}
+                                            {/*        backgroundColor: "blue"*/}
+                                            {/*    }}*/}
+                                            {/*>*/}
+                                            {/*    <div style={{*/}
+                                            {/*        display: "flex",*/}
+                                            {/*        width: "100%",*/}
+                                            {/*        height: "100%",*/}
+                                            {/*        justifyContent: "right",*/}
+                                            {/*        gap: "4px",*/}
+                                            {/*        marginTop: "1px"*/}
+                                            {/*    }}>*/}
+                                            {/*        <Button*/}
+                                            {/*            variant="primary"*/}
+                                            {/*            id={"gdelete" + p.id}*/}
+                                            {/*            style={{*/}
+                                            {/*                fontSize: "xx-small",*/}
+                                            {/*                margin: "0px",*/}
+                                            {/*                height: "20px",*/}
+                                            {/*                width: "10px",*/}
+                                            {/*                justifyContent: "center",*/}
+                                            {/*                backgroundColor: "darkred"*/}
+                                            {/*            }}*/}
+                                            {/*            onClick={() => deleteGuestById(p.id)}*/}
+                                            {/*        >*/}
+                                            {/*            X*/}
+                                            {/*        </Button>*/}
+                                            {/*    </div>*/}
+
+                                            {/*    <Button*/}
+                                            {/*        variant={isSelected ? "success" : "primary"}*/}
+                                            {/*        id={"gplaying" + p.id}*/}
+                                            {/*        style={{ fontSize: 10,*/}
+                                            {/*            width: columnWidth - 10,*/}
+                                            {/*            margin: 1,*/}
+                                            {/*            padding: 2}}*/}
+                                            {/*        onClick={() => updateSelected(p)}*/}
+                                            {/*    >*/}
+                                            {/*        {p.name}*/}
+                                            {/*    </Button>*/}
+
+                                            {/*    <div style={{*/}
+                                            {/*        display: "flex",*/}
+                                            {/*        width: "100%",*/}
+                                            {/*        height: "100%",*/}
+                                            {/*        justifyContent: "center",*/}
+                                            {/*        gap: "4px",*/}
+                                            {/*        marginTop: "4px"*/}
+                                            {/*    }}>*/}
+
+                                            {/*        <EditableNumberButton*/}
+                                            {/*            value={p.shirtno}*/}
+                                            {/*            onCommit={(newNo) => updateShirtNumber(p, newNo)}*/}
+                                            {/*            buttonStyle={{ fontSize: "xx-small" }}*/}
+                                            {/*            buttonVariant="secondary"*/}
+                                            {/*        />*/}
+
+                                            {/*    </div>*/}
+                                            {/*</Card>*/}
+
                                             <Card
+                                                onClick={() => updateSelected(p)}
                                                 style={{
                                                     width: columnWidth,
                                                     height: "100px",
                                                     display: "flex",
                                                     flexDirection: "column",
-                                                    justifyContent: "center",
-                                                    alignItems: "center",
                                                     padding: 4,
-                                                    backgroundColor: "blue"
+                                                    borderRadius: 8,
+                                                    cursor: "pointer",
+                                                    backgroundColor: isSelected ? "darkgreen" : "blue",
+                                                    color: "white",
+                                                    boxSizing: "border-box"
                                                 }}
                                             >
-                                                <Button
-                                                    variant={isSelected ? "success" : "primary"}
-                                                    id={"gplaying" + p.id}
-                                                    style={{ fontSize: 10,
-                                                        width: columnWidth,
-                                                        marginBottom: 4 }}
-                                                    onClick={() => updateSelected(p)}
+                                                {/* Header: badge + delete button */}
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        justifyContent: "space-between",
+                                                        width: "100%",
+                                                        marginBottom: 4
+                                                    }}
                                                 >
-                                                    {p.name}
-                                                </Button>
-                                                <div style={{ display: "flex", width: "100%", gap: "4px", marginTop: "4px" }}>
-
-                                                    <FormControl
-                                                        className="guest-shirt"
-                                                        id={"gshirtnumber" + p.id}
-                                                        name={"gshirtnumber" + p.id}
-                                                        style={{ fontSize: "xx-small", marginBottom: 4 }}
-                                                        type="text"
-                                                        value={p.shirtno}
-                                                        onChange={(e) => updateShirtNumber(p, e.target.value)}
-                                                    />
-
-                                                    <Button
-                                                        variant="primary"
-                                                        id={"gdelete" + p.id}
-                                                        style={{ fontSize: "xx-small",
-                                                            margin: "1px",
-                                                            backgroundColor: "darkred"
+                                                    {/* Badge (e.g. G for Guest) */}
+                                                    <span
+                                                        style={{
+                                                            fontSize: 10,
+                                                            fontWeight: "bold",
+                                                            padding: "2px 6px",
+                                                            borderRadius: 4,
+                                                            backgroundColor: "rgba(255,255,255,0.2)"
                                                         }}
-                                                        onClick={() => deleteGuestById(p.id)}
+                                                    >
+            G
+        </span>
+
+                                                    {/* Delete button – stop click bubbling so it doesn't toggle selection */}
+                                                    <Button
+                                                        variant="danger"
+                                                        id={"gdelete" + p.id}
+                                                        size="sm"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            deleteGuestById(p.id);
+                                                        }}
+                                                        style={{
+                                                            fontSize: "10px",
+                                                            lineHeight: 1,
+                                                            padding: "0 6px",
+                                                            height: "18px"
+                                                        }}
                                                     >
                                                         X
                                                     </Button>
                                                 </div>
+
+                                                {/* Body: name + shirt number */}
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        flexDirection: "column",
+                                                        alignItems: "flex-start",
+                                                        justifyContent: "space-between",
+                                                        flex: 1,
+                                                        width: "100%"
+                                                    }}
+                                                >
+                                                    {/* Player name */}
+                                                    <div
+                                                        style={{
+                                                            width: "100%",
+                                                            fontSize: 11,
+                                                            fontWeight: "bold",
+                                                            marginBottom: 4,
+                                                            textAlign: "center",
+                                                            maxWidth: "100%",
+                                                            // whiteSpace: "nowrap",
+                                                            // overflow: "hidden",
+                                                            // textOverflow: "ellipsis"
+                                                            whiteSpace: "normal",
+                                                            overflow: "visible",
+                                                            textOverflow: "clip"
+
+                                                        }}
+                                                    >
+                                                        {p.name}
+                                                    </div>
+
+                                                    {/* Shirt number (in its own row, click won't toggle selection) */}
+                                                    <div
+                                                        style={{
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            gap: 4,
+                                                            width: "100%"
+                                                        }}
+                                                        onClick={(e) => e.stopPropagation()} // don't trigger card selection
+                                                    >
+                                                        <span style={{ fontSize: 10 }}>No.</span>
+
+                                                        <EditableNumberButton
+                                                            value={p.shirtno}
+                                                            onCommit={(newNo) => updateShirtNumber(p, newNo)}
+                                                            buttonStyle={{
+                                                                fontSize: "10px",
+                                                                padding: "0 6px",
+                                                                minWidth: "32px",
+                                                                textAlign: "centre"
+                                                            }}
+                                                            buttonVariant="light"
+                                                        />
+                                                    </div>
+                                                </div>
                                             </Card>
+
                                         </td>
                                     );
                                 })}
