@@ -77,7 +77,7 @@ function Guests() {
             <table className="guest-selector-table">
                 <tbody>
                 {Array.from(
-                    { length: Math.ceil(myGuests.length / 5) },  // number of rows
+                    { length: Math.ceil(myGuests.length / columns) },  // number of rows
                     (_, rowIndex) => (
                         <tr key={rowIndex}>
                             {myGuests
