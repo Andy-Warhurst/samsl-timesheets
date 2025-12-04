@@ -13,6 +13,7 @@ function Guests() {
     const [myGuests, setMyGuests] = useState([]);
     const [guestText, setGuestText] = useState('');
     const [columns, setColumns] = useState(5);
+    const [columnWidth, setColumnWidth] = useState(100);
     const { data, updateUserField } = useData();
 
     useEffect(() => {
@@ -61,13 +62,14 @@ function Guests() {
             } else {
                 setColumns(6);
             }
+            setColumnWidth((window.innerWidth / columns) - (columns * 10));
         };
 
         updateColumns(); // run once on mount
         window.addEventListener("resize", updateColumns);
 
         return () => window.removeEventListener("resize", updateColumns);
-    }, []);
+    });
 
 
     return (
@@ -87,7 +89,7 @@ function Guests() {
                                         <td key={p.id}>
                                             <Card
                                                 style={{
-                                                    width: "100px",
+                                                    width: columnWidth,
                                                     height: "100px",
                                                     display: "flex",
                                                     flexDirection: "column",
@@ -100,7 +102,9 @@ function Guests() {
                                                 <Button
                                                     variant={isSelected ? "success" : "primary"}
                                                     id={"gplaying" + p.id}
-                                                    style={{ fontSize: 12, marginBottom: 4 }}
+                                                    style={{ fontSize: 10,
+                                                        width: columnWidth,
+                                                        marginBottom: 4 }}
                                                     onClick={() => updateSelected(p)}
                                                 >
                                                     {p.name}
