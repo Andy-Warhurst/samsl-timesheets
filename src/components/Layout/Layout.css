@@ -18,7 +18,7 @@
 }
 
 .layout__header  { grid-area: header; }
-.layout__sidebar { grid-area: sidebar; }
+/*.layout__sidebar { grid-area: sidebar; }*/
 .layout__content { grid-area: content; overflow-y: auto; }
 
 /* ≥ 768px: sidebar on the left, content on the right */
@@ -26,7 +26,7 @@
     .layout {
         grid-template-areas:
       "header  header"
-      "sidebar content";
+      "content content";
         grid-template-columns: var(--sidebar-width) 1fr;
         grid-template-rows: auto 1fr;
     }

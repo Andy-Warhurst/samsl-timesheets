@@ -10,7 +10,7 @@ function Header() {
     return (
         <div>
         <header className={"App-header"}>
-            <div className={"Header-spacer"}/>
+            {/*<div className={"Header-spacer"}/>*/}
             {/*<img src={logo} className="App-logo" alt="logo" />*/}
             <div className={"Header-spacer"}/>
             <Banner />
@@ -23,7 +23,7 @@ function Header() {
             )}
             {isAuthenticated && (
                 <>
-                    <LogoutButton/>
+                    <LogoutButton />
                 </>
             )}
 
