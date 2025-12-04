@@ -62,7 +62,7 @@ function Guests() {
             } else {
                 setColumns(6);
             }
-            setColumnWidth((window.innerWidth / columns) - (columns * 10));
+            setColumnWidth((window.innerWidth / columns) - (columns * 3));
         };
 
         updateColumns(); // run once on mount
