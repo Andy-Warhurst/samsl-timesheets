@@ -192,7 +192,7 @@ function Guests() {
                                                 onClick={() => updateSelected(p)}
                                                 style={{
                                                     width: columnWidth,
-                                                    height: "100px",
+                                                    height: "120px",
                                                     display: "flex",
                                                     flexDirection: "column",
                                                     padding: 4,
@@ -288,7 +288,7 @@ function Guests() {
                                                         }}
                                                         onClick={(e) => e.stopPropagation()} // don't trigger card selection
                                                     >
-                                                        <span style={{ fontSize: 10 }}>No.</span>
+                                                        <span style={{ fontSize: 14 }}>No.</span>
 
                                                         <EditableNumberButton
                                                             value={p.shirtno}
@@ -320,10 +320,10 @@ function Guests() {
                                                     <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>
                                                         <Button
                                                             variant="warning"
-                                                            size="sm"
+                                                            size="lg"
                                                             style={{
                                                                 padding: "0 6px",
-                                                                fontSize: 10,
+                                                                fontSize: 14,
                                                                 lineHeight: 1.1,
                                                             }}
                                                             onClick={(e) => {
@@ -333,17 +333,17 @@ function Guests() {
                                                         >
                                                             Y
                                                         </Button>
-                                                        <span style={{ fontSize: 10 }}>{p.yellows ?? 0}</span>
+                                                        <span style={{ fontSize: 14 }}>{p.yellows ?? 0}</span>
                                                     </div>
 
                                                     {/* Red cards */}
                                                     <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>
                                                         <Button
                                                             variant="danger"
-                                                            size="sm"
+                                                            size="lg"
                                                             style={{
                                                                 padding: "0 6px",
-                                                                fontSize: 10,
+                                                                fontSize: 14,
                                                                 lineHeight: 1.1,
                                                             }}
                                                             onClick={(e) => {
@@ -353,17 +353,17 @@ function Guests() {
                                                         >
                                                             R
                                                         </Button>
-                                                        <span style={{ fontSize: 10 }}>{p.reds ?? 0}</span>
+                                                        <span style={{ fontSize: 14 }}>{p.reds ?? 0}</span>
                                                     </div>
 
                                                     {/* Goals */}
                                                     <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>
                                                         <Button
                                                             variant="success"
-                                                            size="sm"
+                                                            size="lg"
                                                             style={{
                                                                 padding: "0 6px",
-                                                                fontSize: 10,
+                                                                fontSize: 14,
                                                                 lineHeight: 1.1,
                                                             }}
                                                             onClick={(e) => {
@@ -373,7 +373,7 @@ function Guests() {
                                                         >
                                                             G
                                                         </Button>
-                                                        <span style={{ fontSize: 10 }}>{p.goals ?? 0}</span>
+                                                        <span style={{ fontSize: 14 }}>{p.goals ?? 0}</span>
                                                     </div>
                                                 </div>
 
