@@ -246,6 +246,36 @@ function Guests() {
                                                     </Button>
                                                 </div>
 
+                                                {/* Shirt number (in its own row, click won't toggle selection) */}
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        justifyContent: "center",
+                                                        gap: 4,
+                                                        width: "100%"
+                                                    }}
+                                                    onClick={(e) => e.stopPropagation()} // don't trigger card selection
+                                                >
+                                                        {/*<span*/}
+                                                        {/*    style={{*/}
+                                                        {/*        fontSize: 14*/}
+                                                        {/*    }}*/}
+                                                        {/*>No.</span>*/}
+
+                                                    <EditableNumberButton
+                                                        value={p.shirtno}
+                                                        onCommit={(newNo) => updateShirtNumber(p, newNo)}
+                                                        buttonStyle={{
+                                                            fontSize: "10px",
+                                                            padding: "0 6px",
+                                                            minWidth: "32px",
+                                                            textAlign: "centre"
+                                                        }}
+                                                        buttonVariant="light"
+                                                    />
+                                                </div>
+
                                                 {/* Body: name + shirt number */}
                                                 <div
                                                     style={{
@@ -278,35 +308,7 @@ function Guests() {
                                                         {p.name}
                                                     </div>
 
-                                                    {/* Shirt number (in its own row, click won't toggle selection) */}
-                                                    <div
-                                                        style={{
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "center",
-                                                            gap: 4,
-                                                            width: "100%"
-                                                        }}
-                                                        onClick={(e) => e.stopPropagation()} // don't trigger card selection
-                                                    >
-                                                        <span
-                                                            style={{
-                                                                fontSize: 14
-                                                        }}
-                                                        >No.</span>
 
-                                                        <EditableNumberButton
-                                                            value={p.shirtno}
-                                                            onCommit={(newNo) => updateShirtNumber(p, newNo)}
-                                                            buttonStyle={{
-                                                                fontSize: "10px",
-                                                                padding: "0 6px",
-                                                                minWidth: "32px",
-                                                                textAlign: "centre"
-                                                            }}
-                                                            buttonVariant="light"
-                                                        />
-                                                    </div>
                                                 </div>
 
                                                 {/* Footer: Y / R / G buttons + counts */}
