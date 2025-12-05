@@ -283,12 +283,17 @@ function Guests() {
                                                         style={{
                                                             display: "flex",
                                                             alignItems: "center",
+                                                            justifyContent: "center",
                                                             gap: 4,
                                                             width: "100%"
                                                         }}
                                                         onClick={(e) => e.stopPropagation()} // don't trigger card selection
                                                     >
-                                                        <span style={{ fontSize: 14 }}>No.</span>
+                                                        <span
+                                                            style={{
+                                                                fontSize: 14
+                                                        }}
+                                                        >No.</span>
 
                                                         <EditableNumberButton
                                                             value={p.shirtno}
