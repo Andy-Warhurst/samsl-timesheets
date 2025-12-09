@@ -284,6 +284,7 @@ function Guests() {
                                                         alignItems: "flex-start",
                                                         justifyContent: "space-between",
                                                         flex: 1,
+                                                        marginTop: 6,
                                                         width: "100%"
                                                     }}
                                                 >
@@ -293,7 +294,7 @@ function Guests() {
                                                             width: "100%",
                                                             fontSize: 11,
                                                             fontWeight: "bold",
-                                                            marginBottom: 4,
+                                                            marginBottom: 2,
                                                             textAlign: "center",
                                                             maxWidth: "100%",
                                                             // whiteSpace: "nowrap",
