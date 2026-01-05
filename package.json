@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^14.6.1",
     "axios": "^1.13.2",
     "json-server": "^1.0.0-beta.3",
-    "jspdf": "^3.0.4",
+    "jspdf": "^4.0.0",
     "pdf-lib": "^1.17.1",
     "react": "^19.2.3",
     "react-bootstrap": "^2.10.10",
