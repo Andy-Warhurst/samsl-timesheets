@@ -51,23 +51,23 @@ function Guests() {
         [updateGuest]
     );
 
-    const incrementStat = useCallback(
-        (guest, field) => {
-            const updatedGuest = {
-                ...guest,
-                [field]: (guest[field] ?? 0) + 1,
-            };
-
-            // Optimistic local update
-            setMyGuests(prev =>
-                prev.map(g => (g.id === guest.id ? updatedGuest : g))
-            );
-
-            // Persist via your existing context/API
-            updateGuest(updatedGuest);
-        },
-        [updateGuest]
-    );
+    // const incrementStat = useCallback(
+    //     (guest, field) => {
+    //         const updatedGuest = {
+    //             ...guest,
+    //             [field]: (guest[field] ?? 0) + 1,
+    //         };
+    //
+    //         // Optimistic local update
+    //         setMyGuests(prev =>
+    //             prev.map(g => (g.id === guest.id ? updatedGuest : g))
+    //         );
+    //
+    //         // Persist via your existing context/API
+    //         updateGuest(updatedGuest);
+    //     },
+    //     [updateGuest]
+    // );
 
     const deleteGuestById = useCallback(async (id) => {
         await deleteGuest(id);
