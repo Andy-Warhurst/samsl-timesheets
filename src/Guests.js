@@ -312,78 +312,78 @@ function Guests() {
 
                                                 </div>
 
-                                                {/* Footer: Y / R / G buttons + counts */}
-                                                <div
-                                                    style={{
-                                                        display: "flex",
-                                                        justifyContent: "space-between",
-                                                        alignItems: "centre",
-                                                        width: "100%",
-                                                        marginTop: 6,
-                                                        gap: 4,
-                                                    }}
-                                                    onClick={(e) => e.stopPropagation()} // don’t toggle card selection
-                                                >
-                                                    {/* Yellow cards */}
-                                                    <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>
-                                                        <Button
-                                                            variant="warning"
-                                                            size="lg"
-                                                            style={{
-                                                                padding: "0 6px",
-                                                                fontSize: 14,
-                                                                lineHeight: 1.1,
-                                                            }}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                incrementStat(p, "yellows");
-                                                            }}
-                                                        >
-                                                            Y
-                                                        </Button>
-                                                        <span style={{ fontSize: 14 }}>{p.yellows ?? 0}</span>
-                                                    </div>
+                                                {/*/!* Footer: Y / R / G buttons + counts *!/*/}
+                                                {/*<div*/}
+                                                {/*    style={{*/}
+                                                {/*        display: "flex",*/}
+                                                {/*        justifyContent: "space-between",*/}
+                                                {/*        alignItems: "centre",*/}
+                                                {/*        width: "100%",*/}
+                                                {/*        marginTop: 6,*/}
+                                                {/*        gap: 4,*/}
+                                                {/*    }}*/}
+                                                {/*    onClick={(e) => e.stopPropagation()} // don’t toggle card selection*/}
+                                                {/*>*/}
+                                                {/*    /!* Yellow cards *!/*/}
+                                                {/*    <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>*/}
+                                                {/*        <Button*/}
+                                                {/*            variant="warning"*/}
+                                                {/*            size="lg"*/}
+                                                {/*            style={{*/}
+                                                {/*                padding: "0 6px",*/}
+                                                {/*                fontSize: 14,*/}
+                                                {/*                lineHeight: 1.1,*/}
+                                                {/*            }}*/}
+                                                {/*            onClick={(e) => {*/}
+                                                {/*                e.stopPropagation();*/}
+                                                {/*                incrementStat(p, "yellows");*/}
+                                                {/*            }}*/}
+                                                {/*        >*/}
+                                                {/*            Y*/}
+                                                {/*        </Button>*/}
+                                                {/*        <span style={{ fontSize: 14 }}>{p.yellows ?? 0}</span>*/}
+                                                {/*    </div>*/}
 
-                                                    {/* Red cards */}
-                                                    <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>
-                                                        <Button
-                                                            variant="danger"
-                                                            size="lg"
-                                                            style={{
-                                                                padding: "0 6px",
-                                                                fontSize: 14,
-                                                                lineHeight: 1.1,
-                                                            }}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                incrementStat(p, "reds");
-                                                            }}
-                                                        >
-                                                            R
-                                                        </Button>
-                                                        <span style={{ fontSize: 14 }}>{p.reds ?? 0}</span>
-                                                    </div>
+                                                {/*    /!* Red cards *!/*/}
+                                                {/*    <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>*/}
+                                                {/*        <Button*/}
+                                                {/*            variant="danger"*/}
+                                                {/*            size="lg"*/}
+                                                {/*            style={{*/}
+                                                {/*                padding: "0 6px",*/}
+                                                {/*                fontSize: 14,*/}
+                                                {/*                lineHeight: 1.1,*/}
+                                                {/*            }}*/}
+                                                {/*            onClick={(e) => {*/}
+                                                {/*                e.stopPropagation();*/}
+                                                {/*                incrementStat(p, "reds");*/}
+                                                {/*            }}*/}
+                                                {/*        >*/}
+                                                {/*            R*/}
+                                                {/*        </Button>*/}
+                                                {/*        <span style={{ fontSize: 14 }}>{p.reds ?? 0}</span>*/}
+                                                {/*    </div>*/}
 
-                                                    {/* Goals */}
-                                                    <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>
-                                                        <Button
-                                                            variant="success"
-                                                            size="lg"
-                                                            style={{
-                                                                padding: "0 6px",
-                                                                fontSize: 14,
-                                                                lineHeight: 1.1,
-                                                            }}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                incrementStat(p, "goals");
-                                                            }}
-                                                        >
-                                                            G
-                                                        </Button>
-                                                        <span style={{ fontSize: 14 }}>{p.goals ?? 0}</span>
-                                                    </div>
-                                                </div>
+                                                {/*    /!* Goals *!/*/}
+                                                {/*    <div style={{ display: "flex", alignItems: "centre", gap: 2 }}>*/}
+                                                {/*        <Button*/}
+                                                {/*            variant="success"*/}
+                                                {/*            size="lg"*/}
+                                                {/*            style={{*/}
+                                                {/*                padding: "0 6px",*/}
+                                                {/*                fontSize: 14,*/}
+                                                {/*                lineHeight: 1.1,*/}
+                                                {/*            }}*/}
+                                                {/*            onClick={(e) => {*/}
+                                                {/*                e.stopPropagation();*/}
+                                                {/*                incrementStat(p, "goals");*/}
+                                                {/*            }}*/}
+                                                {/*        >*/}
+                                                {/*            G*/}
+                                                {/*        </Button>*/}
+                                                {/*        <span style={{ fontSize: 14 }}>{p.goals ?? 0}</span>*/}
+                                                {/*    </div>*/}
+                                                {/*</div>*/}
 
                                             </Card>
 
