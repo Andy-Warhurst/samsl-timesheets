@@ -1,7 +1,7 @@
 
 const roundDates = [
-    {round: '1', date: "2025-05-04"},
-    {round: '2', date: "2025-05-18"},
+    {round: '1', date: "2026-04-12"},
+    {round: '2', date: "2026-04-19"},
     {round: '3', date: "2025-05-25"},
     {round: '4', date: "2025-06-01"},
     {round: 'CUPQ', date: "2025-06-08"},
