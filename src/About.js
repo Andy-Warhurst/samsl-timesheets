@@ -8,10 +8,10 @@ function About() {
         <div>
             <h1>About Page</h1>
             <p>
-                Version: 1.1.4 - Updated the player selection interface.
+                Version: 1.1.5 - Realignment
             </p>
             <p>
-                Date: 03 December 2025
+                Date: 21 October 2026
             </p>
             <Link to="/">Home</Link>
         </div>
