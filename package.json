@@ -17,7 +17,6 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.4",
-    "react-scripts": "^5.0.1",
     "web-vitals": "^6.2.3"
   },
   "scripts": {
@@ -47,5 +46,8 @@
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1"
   }
 }
