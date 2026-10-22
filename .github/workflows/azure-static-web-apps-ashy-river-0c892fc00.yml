@@ -11,7 +11,7 @@ on:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -23,10 +23,10 @@ jobs:
 #        uses: actions/setup-node@v3
 #        with:
 #          node-version: '22'
-      - name: set up Node.js 22
+      - name: set up Node.js 24
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Install dependencies
         run: npm install
       - name: Build project
@@ -47,7 +47,7 @@ jobs:
         env:
           REACT_APP_CLIENT: ${{ secrets.REACT_APP_CLIENT}}
           REACT_APP_DOMAIN: ${{ secrets.REACT_APP_DOMAIN}}
-          NODE_VERSION: '22'
+          NODE_VERSION: '24'
 
   validate_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
