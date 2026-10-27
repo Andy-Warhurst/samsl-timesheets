@@ -12,3 +12,7 @@ updates:
     open-pull-requests-limit: 12
     commit-message:
       prefix: "fix"
+    ignore:
+      - dependency-name: "@babel/*"
+        update-types:
+          - "version-update:semver-major"
